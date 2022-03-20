@@ -1,69 +1,62 @@
 #include <bits/stdc++.h>
-#define rep(i,n) for (int i = 0; i < (int)(n); i ++)
-#define irep(i,n) for (int i = (int)(n) - 1;i >= 0;--i)
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define irep(i, n) for (int i = (int)(n)-1; i >= 0; --i)
 using namespace std;
-using ll = long long;
-using PL = pair<ll,ll>;
-using P = pair<int,int>;
-constexpr int INF = 1000000000;
+using ll                 = long long;
+using PL                 = pair<ll, ll>;
+using P                  = pair<int, int>;
+constexpr int INF        = 1000000000;
 constexpr long long HINF = 1000000000000000;
-constexpr long long MOD = 1000000007;// = 998244353;
-constexpr double EPS = 1e-4;
-constexpr double PI = 3.14159265358979;
+constexpr long long MOD  = 1000000007; // = 998244353;
+constexpr double EPS     = 1e-4;
+constexpr double PI      = 3.14159265358979;
 
-using u64 = unsigned long long;
-constexpr u64 M = 2305843009213693951; // 2^61 - 1
-constexpr u64 MASK31 = 2147483647; // 2^31 - 1
-constexpr u64 MASK30 = 1073741823; // 2^30 - 1
-constexpr u64 POSITIVIZER = 4*M;
+using u64                 = unsigned long long;
+constexpr u64 M           = 2305843009213693951; // 2^61 - 1
+constexpr u64 MASK31      = 2147483647;          // 2^31 - 1
+constexpr u64 MASK30      = 1073741823;          // 2^30 - 1
+constexpr u64 POSITIVIZER = 4 * M;
 
 u64 CalcMod(u64 x) {
-    u64 res = (x >> 61) + (x&M);
+    u64 res = (x >> 61) + (x & M);
     if (res >= M) res -= M;
     return res;
 }
-u64 mul(u64 x,u64 y) {
-    u64 au = (x >> 31),ad = (x&MASK31),bu = (y >> 31),bd = (y&MASK31);
-    u64 m = au * bd + ad * bu;
-    u64 mu = (m >> 30),md = (m&MASK30);
-    u64 ans = ((au*bu)<<1) + mu + (md << 31) + ad*bd;
+u64 mul(u64 x, u64 y) {
+    u64 au = (x >> 31), ad = (x & MASK31), bu = (y >> 31), bd = (y & MASK31);
+    u64 m  = au * bd + ad * bu;
+    u64 mu = (m >> 30), md = (m & MASK30);
+    u64 ans = ((au * bu) << 1) + mu + (md << 31) + ad * bd;
     return CalcMod(ans);
 }
 
 struct RollingHash {
     static u64 B;
     int N;
-    vector<u64> hash,power;
+    vector<u64> hash, power;
     RollingHash(const string &s) {
         N = (int)s.size();
-        hash.resize(N + 1,0); power.resize(N + 1,0);
-        hash[0] = 0; power[0] = 1;
+        hash.resize(N + 1, 0);
+        power.resize(N + 1, 0);
+        hash[0]  = 0;
+        power[0] = 1;
         for (int i = 0; i < (int)s.size(); ++i) {
-            hash[i + 1] = CalcMod(mul(hash[i],B) + s[i]);
-            power[i + 1] = mul(power[i],B);
+            hash[i + 1]  = CalcMod(mul(hash[i], B) + s[i]);
+            power[i + 1] = mul(power[i], B);
         }
     }
-    u64 get() {return hash[N];}
-    u64 get(int k) {return hash[k];}
-    u64 get(int l,int r) {return CalcMod(hash[r] + POSITIVIZER - mul(hash[l],power[r - l]));}
+    u64 get() { return hash[N]; }
+    u64 get(int k) { return hash[k]; }
+    u64 get(int l, int r) { return CalcMod(hash[r] + POSITIVIZER - mul(hash[l], power[r - l])); }
 };
 
 mt19937_64 mt;
-uniform_int_distribution<unsigned long long> rng(2,M - 2);
+uniform_int_distribution<unsigned long long> rng(2, M - 2);
 unsigned long long RollingHash::B = rng(mt);
-
-
-
-
-
-
-
-
-
 
 /*
 
-// two 32bit MOD version 
+// two 32bit MOD version
 struct RollingHash {
     using u64 = unsigned long long;
     static const u64 M1 = 2147483647,M2 = 1000000007;
