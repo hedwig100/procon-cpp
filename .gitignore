@@ -1,3 +1,15 @@
 .DS_Store 
 /target
 Cargo.lock
+a.cpp
+b.cpp
+c.cpp
+d.cpp
+e.cpp
+f.cpp
+a.o
+b.o
+c.o
+d.o
+e.o
+f.o
