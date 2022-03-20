@@ -52,3 +52,11 @@ bool IN(int y, int x, int H, int W) { return (0 <= y) && (y < H) && (0 <= x) && 
 template <class T>
 T gcd(T a, T b) { return (b ? gcd(b, a % b) : a); }
 #pragma endregion
+
+int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(20);
+
+    return 0;
+}
