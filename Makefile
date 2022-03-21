@@ -11,36 +11,31 @@ setup:
 	cp template.cpp g.cpp
 	cp template.cpp h.cpp
 
-a: 
-	$(CXX) $(CXXFLAGS) -o a.o a.cpp
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+a: a.o
 	./a.o
 
-b: 
-	$(CXX) $(CXXFLAGS) -o b.o b.cpp
+b: b.o
 	./b.o
 
-c: 
-	$(CXX) $(CXXFLAGS) -o c.o c.cpp
+c: c.o
 	./c.o
 
-d:
-	$(CXX) $(CXXFLAGS) -o d.o d.cpp
+d: d.o
 	./d.o
 
-e:
-	$(CXX) $(CXXFLAGS) -o e.o e.cpp
+e: e.o
 	./e.o
 
-f:
-	$(CXX) $(CXXFLAGS) -o f.o f.cpp
+f: f.o
 	./f.o
 
-g:
-	$(CXX) $(CXXFLAGS) -o g.o g.cpp
+g: g.o
 	./g.o
 
-h:
-	$(CXX) $(CXXFLAGS) -o h.o h.cpp
+h: h.o
 	./h.o
 
 clean:
