@@ -26,3 +26,10 @@ f.o.dSYM
 g.o.dSYM
 h.o.dSYM
 *a.out
+solver.cpp
+solver.o
+make_test.cpp
+make_test.o
+input.txt
+output.txt
+ans.txt

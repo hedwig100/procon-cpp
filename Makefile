@@ -1,8 +1,11 @@
 CXX = g++
-CXXFLAGS = -std=gnu++17 -DLOCAL_ -W -Wall -Wno-unknown-pragmas -O2 -fsanitize=address
+CXXFLAGS = -std=gnu++17 -DLOCAL_ -D_GLIBCXX_DEBUG -D_FORTIFY_SOURCE=2 -W -Wall -Wno-unknown-pragmas -O2 -fsanitize=address
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+test%: %.o make_test.o solver.o
+	./test.sh $< 20
 
 a: a.o
 	./a.o
@@ -29,6 +32,8 @@ h: h.o
 	./h.o
 
 setup:
+	cp template_test.cpp make_test.cpp
+	cp template.cpp solver.cpp
 	cp template.cpp a.cpp
 	cp template.cpp b.cpp
 	cp template.cpp c.cpp
@@ -40,5 +45,7 @@ setup:
 
 clean:
 	rm -f *.o
+
+.SECONDARY: make_test.o solver.o
 
 .PHONY: test clean
