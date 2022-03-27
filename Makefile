@@ -44,7 +44,8 @@ setup:
 	cp template.cpp h.cpp
 
 clean:
-	rm -f *.o
+	rm -f *.o data_structure/*.out graph/*.out math/*.out other_algorithm/*.out String/*.out \
+		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp
 
 .SECONDARY: make_test.o solver.o
 
