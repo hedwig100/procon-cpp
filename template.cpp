@@ -19,9 +19,11 @@ void debug_out(Head H, Tail... T) {
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define irep(i, n) for (int i = (int)(n)-1; i >= 0; --i)
 
-using ll = long long;
-using PL = pair<ll, ll>;
-using P  = pair<int, int>;
+using ll  = long long;
+using pii = pair<int, int>;
+using pil = pair<int, ll>;
+using pli = pair<ll, int>;
+using pll = pair<ll, ll>;
 
 constexpr int INF        = 1000000000;
 constexpr long long HINF = 1000000000000000;
@@ -44,6 +46,25 @@ ostream &operator<<(ostream &os, const vector<T> &v) {
     os << ']';
     return os;
 }
+template <typename T>
+ostream &operator<<(ostream &os, const set<T> &st) {
+    os << '{';
+    for (auto itr = st.begin(); itr != st.end(); itr++) {
+        os << *itr << ',';
+    }
+    os << '}';
+    return os;
+}
+template <typename K, typename V>
+ostream &operator<<(ostream &os, const map<K, V> &mp) {
+    os << '{';
+    for (auto itr = mp.begin(); itr != mp.end(); itr++) {
+        os << itr->first << ": " << itr->second << ',';
+    }
+    os << '}';
+    return os;
+}
+
 // grid searh
 const int dy[8] = {-1, 0, 1, 0, -1, -1, 1, 1};
 const int dx[8] = {0, 1, 0, -1, -1, 1, -1, 1};
