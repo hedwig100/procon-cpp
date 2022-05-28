@@ -32,8 +32,8 @@ struct BinaryIndexedTree {
         }
     }
 
-    // sum(k) returns \sum_{0 <= i < k} a[i]
-    // constraint: 0 <= k <= N
+    // sum(k) returns \sum_{0 <= i <= k} a[i]
+    // constraint: 0 <= k < N
     T sum(int k) {
         T ret = 0;
         for (int idx = ++k; idx > 0; idx -= (idx & -idx)) {
