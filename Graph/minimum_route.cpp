@@ -1,34 +1,24 @@
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < (int)(n); i++)
-#define irep(i, n) for (int i = (int)(n)-1; i >= 0; --i)
 using namespace std;
-using ll                 = long long;
-using PL                 = pair<ll, ll>;
-using P                  = pair<int, int>;
-constexpr int INF        = 1000000000;
 constexpr long long HINF = 1000000000000000;
-constexpr long long MOD  = 1000000007; // = 998244353;
-constexpr double EPS     = 1e-4;
-constexpr double PI      = 3.14159265358979;
 
 //---------------- dijkstra --------------
-
-vector<ll> dijkstra(int n, vector<vector<PL>> &G, int s) {
-    vector<ll> dist(n, HINF);
+vector<long long> dijkstra(int n, vector<vector<pair<int, long long>>> &G, int s) {
+    vector<long long> dist(n, HINF);
     dist[s] = 0;
 
-    priority_queue<PL, vector<PL>, greater<P>> q;
+    priority_queue<pair<int, long long>, vector<pair<int, long long>>, greater<pair<int, long long>>> q;
     q.push({0, s});
 
     while (!q.empty()) {
-        PL p = q.top();
+        pair<int, long long> p = q.top();
         q.pop();
-        ll d  = p.first;
-        int v = p.second;
+        long long d = p.first;
+        int v       = p.second;
         if (dist[v] < d) continue;
-        for (PL p : G[v]) {
-            int e   = p.first;
-            ll cost = p.second;
+        for (auto p : G[v]) {
+            int e          = p.first;
+            long long cost = p.second;
             if (dist[e] > dist[v] + cost) {
                 dist[e] = dist[v] + cost;
                 q.push({dist[e], e});
@@ -42,13 +32,14 @@ vector<ll> dijkstra(int n, vector<vector<PL>> &G, int s) {
 
 struct edge {
     int a, b;
-    ll c;
+    long long c;
     edge() {}
-    edge(int a, int b, ll c) : a(a), b(b), c(c) {}
+    edge(int a, int b, long long c) : a(a), b(b), c(c) {}
 };
+
 bool find_negative = false;
-vector<ll> beruman(int N, vector<edge> &edges, int s = 0) {
-    vector<ll> dist(N, HINF);
+vector<long long> beruman(int N, vector<edge> &edges, int s = 0) {
+    vector<long long> dist(N, HINF);
     dist[s] = 0;
 
     for (int i = 0; i < N; ++i) {
