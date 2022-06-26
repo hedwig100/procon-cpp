@@ -1,8 +1,5 @@
-#include <cassert>
-#include <iostream>
-#include <vector>
-
-using std::swap;
+#include <bits/stdc++.h>
+using namespace std;
 
 template <int MOD>
 struct ModInt {

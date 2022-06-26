@@ -1,7 +1,5 @@
-#include <iostream>
-#include <vector>
-
-using std::swap;
+#include <bits/stdc++.h>
+using namespace std;
 
 template <int MOD>
 struct ModInt {
@@ -57,9 +55,6 @@ using mint = ModInt<998244353>;
 
 //  verified:
 //     https://atcoder.jp/contests/abc246/tasks/abc246_f
-
-#include <iomanip>
-#include <string>
 
 int main() {
     std::cin.tie(nullptr);

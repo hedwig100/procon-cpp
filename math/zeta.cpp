@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
 
 // a <= b <=> a <= b
 // g[x] = \\sum_{ i <= x } f[i]
