@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <set>
-#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
 
 struct StronglyConnectedComponents {
   private:
@@ -113,7 +112,6 @@ struct StronglyConnectedComponents {
 };
 
 // https://atcoder.jp/contests/abc245/tasks/abc245_f
-#include <iostream>
 
 int abc245_f() {
     int N, M;
