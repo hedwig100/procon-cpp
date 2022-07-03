@@ -71,15 +71,21 @@ setup:
 	cp template/algorithm.cpp g.cpp
 	cp template/algorithm.cpp h.cpp
 
+# for marathon 
+
 marathon:
 	cp template/test.cpp make_test.cpp
-	cp template/algorithm.cpp solver.cpp
+	cp template/algorithm.cpp score_calc.cpp
 	cp template/marathon.cpp main.cpp
+
+# run one case
+main: main.o
+	./main.o < input.txt > output.txt 
 
 clean:
 	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out string/*.out \
 		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp \
-		  main.cpp
+		  main.cpp score_calc.cpp
 
 .SECONDARY: make_test.o solver.o
 

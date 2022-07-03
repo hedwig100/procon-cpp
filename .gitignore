@@ -42,5 +42,6 @@ input.txt
 output.txt
 ans.txt
 main.cpp
+score_calc.cpp
 /atcoder
 /venv
