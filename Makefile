@@ -60,20 +60,26 @@ ach: h.exe
 	./h.exe
 
 setup:
-	cp template_test.cpp make_test.cpp
-	cp template.cpp solver.cpp
-	cp template.cpp a.cpp
-	cp template.cpp b.cpp
-	cp template.cpp c.cpp
-	cp template.cpp d.cpp
-	cp template.cpp e.cpp
-	cp template.cpp f.cpp
-	cp template.cpp g.cpp
-	cp template.cpp h.cpp
+	cp template/test.cpp make_test.cpp
+	cp template/algorithm.cpp solver.cpp
+	cp template/algorithm.cpp a.cpp
+	cp template/algorithm.cpp b.cpp
+	cp template/algorithm.cpp c.cpp
+	cp template/algorithm.cpp d.cpp
+	cp template/algorithm.cpp e.cpp
+	cp template/algorithm.cpp f.cpp
+	cp template/algorithm.cpp g.cpp
+	cp template/algorithm.cpp h.cpp
+
+marathon:
+	cp template/test.cpp make_test.cpp
+	cp template/algorithm.cpp solver.cpp
+	cp template/marathon.cpp main.cpp
 
 clean:
-	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out String/*.out \
-		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp
+	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out string/*.out \
+		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp \
+		  main.cpp
 
 .SECONDARY: make_test.o solver.o
 

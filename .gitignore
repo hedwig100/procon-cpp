@@ -41,5 +41,6 @@ make_test.o
 input.txt
 output.txt
 ans.txt
+main.cpp
 /atcoder
 /venv
