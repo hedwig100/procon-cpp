@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=gnu++17 -DLOCAL_ -D_GLIBCXX_DEBUG -D_FORTIFY_SOURCE=2 -W -Wall -Wno-unknown-pragmas -O2 -fsanitize=address
-INCLUDE = -I .
+INCLUDE = -I ./ac-library/
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $^
