@@ -1,11 +1,12 @@
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 
 template <class T>
 struct BinaryIndexedTree {
-    int N;              // array length
-    int power = 1;      // minimum power of 2 larger than N (power = 2^i > N)
-    std::vector<T> bit; // bit data array
+    int N;         // array length
+    int power = 1; // minimum power of 2 larger than N (power = 2^i > N)
+    vector<T> bit; // bit data array
 
     BinaryIndexedTree(int N = 0) : N(N) {
         bit.assign(N + 1, 0);
@@ -13,15 +14,15 @@ struct BinaryIndexedTree {
             power <<= 1; // power > N
     }
 
-    BinaryIndexedTree(const std::vector<T> &A) {
+    BinaryIndexedTree(const vector<T> &A) {
         N = (int)A.size();
         bit.assign(N + 1, 0);
         while (power <= N)
             power <<= 1; // power > N
 
         // build
-        for (int i = 1; i <= N; ++i)
-            add(i, A[i - 1]);
+        for (int i = 0; i < N; ++i)
+            add(i, A[i]);
     }
 
     // add x to a[i]
@@ -61,30 +62,3 @@ struct BinaryIndexedTree {
         return k;
     }
 };
-
-/*
-    https://yukicoder.me/problems/no/1115
-*/
-
-int main() {
-    int N;
-    std::cin >> N;
-    std::vector<int> A(N), B(N), C(N + 1);
-    for (int i = 0; i < N; i++)
-        std::cin >> A[i];
-    for (int i = 0; i < N; i++)
-        std::cin >> B[i];
-    for (int i = 0; i < N; i++)
-        C[B[i]] = i;
-    for (int i = 0; i < N; i++)
-        A[i] = C[A[i]];
-
-    BinaryIndexedTree<int> bit(N);
-    long long ans = 0;
-    for (int i = 0; i < N; i++) {
-        ans += i - bit.sum(A[i]);
-        bit.add(A[i], 1);
-    }
-    std::cout << ans << '\n';
-    return 0;
-}
