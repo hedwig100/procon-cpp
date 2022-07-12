@@ -20,10 +20,7 @@ int main() {
             bit.add(p, x);
         } else {
             cin >> l >> r;
-            if (l == 0)
-                cout << bit.sum(r - 1) << '\n';
-            else
-                cout << bit.sum(r - 1) - bit.sum(l - 1) << '\n';
+            cout << bit.sum(l, r) << '\n';
         }
     }
 
