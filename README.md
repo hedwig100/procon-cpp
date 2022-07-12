@@ -2,6 +2,24 @@
 
 procon_lib is a library for programming contest.
 
+## Setup 
+
+```
+git clone https://github.com/hedwig100/procon_lib 
+cd procon_lib
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Verify 
+
+仮想環境の中で
+
+```
+oj-verify run
+```
+
 ## Branch
 
 - [C++](https://github.com/hedwig100/procon_lib)
