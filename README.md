@@ -10,6 +10,7 @@ cd procon_lib
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+python3 snippets_generator.py
 ```
 
 ## Verify 
