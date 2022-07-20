@@ -1,4 +1,4 @@
-import os,json 
+import os,json,pathlib
 
 class Snippet():
     def __init__(self,name,prefix,body,description=""):
@@ -15,27 +15,46 @@ class Snippet():
         })
         return f'"{self.name}": ' + json_body
 
-def to_path(include_sentence):
-    return include_sentence.removeprefix("#include").replace('"','').strip()
-
-REMOVE_SENTENCE = [
+IGNORE_SENTENCE = [
     "#pragma once\n",
     "#include <bits/stdc++.h>\n",
     "using namespace std;\n",
 ]
 
-# TODO: open file ecursively and create snippet
-def readfile_recursively(path):
-    body = []
-    with open(path,mode = "r") as f:
-        for line in f:
-            if line in REMOVE_SENTENCE:
-                continue
-            body.append(line.rstrip())
-    return body
+class CodeReader():
+    def __init__(self,path):
+        self.path = pathlib.Path(path)
+        self.visited = set()
+        self.cwd = None
+        self.code = []
+    
+    def readfile(self):
+        self._readfile_recursively(self.path.resolve())
+        return self.code
+    
+    def _remove_include(self,include_sentence):
+        return include_sentence.removeprefix("#include").replace('"','').strip()
+    
+    def _get_next_path(self,current_file,next_file):
+        next_path = current_file.parent / next_file 
+        return next_path.resolve()
+    
+    def _readfile_recursively(self,current_path):
+        self.visited.add(current_path)
+        with open(current_path,mode = "r") as f:
+            for line in f:
+                if line in IGNORE_SENTENCE:
+                    continue
+                elif line.startswith("#include"):
+                    next_path = self._get_next_path(current_path,self._remove_include(line))
+                    if next_path not in self.visited:
+                        self._readfile_recursively(next_path)
+                else:
+                    self.code.append(line.rstrip())
 
-def create_snippets(path,prefix,description=""):
-    snippet_body = readfile_recursively(path)
+def create_snippet(path,prefix,description=""):
+    code_reader = CodeReader(path)
+    snippet_body = code_reader.readfile()
     return Snippet(
         name = path,
         prefix = prefix,
@@ -44,6 +63,8 @@ def create_snippets(path,prefix,description=""):
     )
 
 def output_snippets(snippets):
+    if not os.path.exists(".vscode"):
+        os.mkdir(".vscode")
     with open(".vscode/procon.code-snippets",mode = "w") as f:
         f.write("{")
         for snippet in snippets:
@@ -51,7 +72,7 @@ def output_snippets(snippets):
             f.write(",")
         f.write("}")
 
-REMOVE_DIR = [
+IGNORE_DIR = [
     ".git",
     ".github",
     ".verify-helper",
@@ -68,12 +89,12 @@ def main():
     cwd_path = "./"
     for dir in os.listdir(cwd_path):
         dir_path = os.path.join(cwd_path,dir) 
-        if ( not os.path.isdir(dir_path) ) or ( dir in REMOVE_DIR ):
+        if ( not os.path.isdir(dir_path) ) or ( dir in IGNORE_DIR ):
             continue
         for file in os.listdir(dir_path):
             file_path = os.path.join(dir_path,file)
             prefix = file.rstrip(".cpp")
-            snippets.append(create_snippets(file_path,f"snp {prefix}"))
+            snippets.append(create_snippet(file_path,f"snp {prefix}"))
 
     output_snippets(snippets)
 
