@@ -110,26 +110,3 @@ struct StronglyConnectedComponents {
         return group[i];
     }
 };
-
-// https://atcoder.jp/contests/abc245/tasks/abc245_f
-
-int abc245_f() {
-    int N, M;
-    std::cin >> N >> M;
-    StronglyConnectedComponents scc(N);
-    for (int i = 0; i < M; i++) {
-        int u, v;
-        std::cin >> u >> v;
-        --u;
-        --v;
-        scc.add_edge(u, v);
-    }
-    scc.build(true);
-    std::cout << scc.dp() << '\n';
-    return 0;
-}
-
-int main() {
-    abc245_f();
-    return 0;
-}
