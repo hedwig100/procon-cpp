@@ -1,57 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-template <int MOD>
-struct ModInt {
-  public:
-    long long x;
-    ModInt(long long x = 0) : x((x % MOD + MOD) % MOD) {}
-    constexpr ModInt &operator+=(const ModInt a) noexcept {
-        if ((x += a.x) >= MOD) x -= MOD;
-        return *this;
-    }
-    constexpr ModInt &operator-=(const ModInt a) noexcept {
-        if ((x += MOD - a.x) >= MOD) x -= MOD;
-        return *this;
-    }
-    constexpr ModInt &operator*=(const ModInt a) noexcept {
-        (x *= a.x) %= MOD;
-        return *this;
-    }
-    constexpr ModInt &operator/=(const ModInt a) noexcept { return *this *= a.inverse(); }
-
-    constexpr ModInt operator+(const ModInt a) const noexcept { return ModInt(*this) += a.x; }
-    constexpr ModInt operator-(const ModInt a) const noexcept { return ModInt(*this) -= a.x; }
-    constexpr ModInt operator*(const ModInt a) const noexcept { return ModInt(*this) *= a.x; }
-    constexpr ModInt operator/(const ModInt a) const noexcept { return ModInt(*this) /= a.x; }
-
-    friend std::ostream &operator<<(std::ostream &os, const ModInt<MOD> a) noexcept { return os << a.x; }
-    friend std::istream &operator>>(std::istream &is, ModInt<MOD> &a) noexcept { return is >> a.x; }
-
-    ModInt inverse() const noexcept { // x ^ (-1)
-        long long a = x, b = MOD, p = 1, q = 0;
-        while (b) {
-            long long d = a / b;
-            a -= d * b;
-            swap(a, b);
-            p -= d * q;
-            swap(p, q);
-        }
-        return ModInt(p);
-    }
-    ModInt pow(long long N) const noexcept { // x ^ N
-        ModInt a = 1;
-        ModInt y = this->x;
-        while (N) {
-            if (N & 1) a *= y;
-            y *= y;
-            N >>= 1;
-        }
-        return a;
-    }
-};
-
-using mint = ModInt<998244353>;
+#include "./mint.cpp"
 
 // NumberTheoreticTransform supports only F_998244353 as coefficient.
 // recursive version
@@ -63,7 +12,7 @@ struct NumberTheoreticTransform {
   public:
     NumberTheoreticTransform() {}
 
-    // ntt caluculates y[i] = \sum_{j=0}^{n-1} x[j]r^{ij} where n is length of x and r is n-th root of 1 (mod n)
+    // ntt calculates y[i] = \sum_{j=0}^{n-1} x[j]r^{ij} where n is length of x and r is n-th root of 1 (mod n)
     // n must be power of two (n = 2^m)
     void ntt(int m, mint nth_root, std::vector<mint> &x) {
         if (m == 0) return;
@@ -116,21 +65,3 @@ struct NumberTheoreticTransform {
         return h;
     }
 };
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::vector<mint> A(n), B(m);
-    for (int i = 0; i < n; i++)
-        std::cin >> A[i];
-    for (int i = 0; i < m; i++)
-        std::cin >> B[i];
-
-    NumberTheoreticTransform ntt;
-    std::vector<mint> C = ntt.multiply(A, B);
-    for (int i = 0; i < n + m - 1; i++) {
-        std::cout << C[i] << ' ';
-    }
-    std::cout << '\n';
-    return 0;
-}
