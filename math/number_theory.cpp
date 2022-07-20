@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-constexpr int MOD = 998244353;
+#include "../template/const.hpp"
 
 // a,bの最大公約数を求める
 template <class T>

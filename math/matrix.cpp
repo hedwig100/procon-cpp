@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+#include "../math/mint.cpp"
 
-// NOTE: mintではなくてテンプレートを使う
-
-using mint   = long long;
 using Matrix = vector<vector<mint>>;
+
 Matrix mat_mul(Matrix &A, Matrix &B) {
     Matrix ans(A.size(), vector<mint>(B[0].size(), 0));
     for (int i = 0; i < A.size(); i++) {
@@ -16,6 +15,7 @@ Matrix mat_mul(Matrix &A, Matrix &B) {
     }
     return ans;
 }
+
 Matrix mat_pow(Matrix &A, long long N) {
     Matrix ans(A.size(), vector<mint>(A.size(), 0));
     for (int i = 0; i < A.size(); i++)

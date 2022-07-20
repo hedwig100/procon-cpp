@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-constexpr int INF = 1000000000;
+#include "../template/const.hpp"
 
 // NOT VERIFIED
 

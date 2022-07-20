@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-constexpr long long HINF = 1000000000000000;
+#include "../template/const.hpp"
 
 vector<long long> dijkstra(int n, vector<vector<pair<int, long long>>> &G, int s) {
     vector<long long> dist(n, HINF);

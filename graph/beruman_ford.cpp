@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-constexpr long long HINF = 1000000000000000;
+#include "../template/const.hpp"
 
 struct edge {
     int a, b;

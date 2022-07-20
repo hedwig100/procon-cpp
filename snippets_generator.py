@@ -19,6 +19,7 @@ IGNORE_SENTENCE = [
     "#pragma once\n",
     "#include <bits/stdc++.h>\n",
     "using namespace std;\n",
+    '#include "../template/const.hpp"\n'
 ]
 
 class CodeReader():
