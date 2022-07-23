@@ -36,7 +36,7 @@ struct BinaryIndexedTree {
         }
     }
 
-    // sum(k) returns \sum_{0 <= i <= k} a[i]
+    // sum(k) returns sum_{0 <= i <= k} a[i]
     // constraint: 0 <= k < N
     // complexity: O(logN)
     T sum(int k) {
@@ -47,7 +47,7 @@ struct BinaryIndexedTree {
         return ret;
     }
 
-    // sum(l,r) returns \sum_{l <= i < r} a[i]
+    // sum(l,r) returns sum_{l <= i < r} a[i]
     // constraint: 0 <= l < r <= N
     // complexity: O(logN)
     T sum(int l, int r) {
@@ -56,7 +56,7 @@ struct BinaryIndexedTree {
     }
 
     // あやしい
-    // lower_bound returns minimum index k s.t. \sum_{0 <= i <= k} >= x
+    // lower_bound returns minimum index k s.t. sum_{0 <= i <= k} >= x
     // constraint: a[i] >= 0 for all i
     // complexity: O(logN)
     int lower_bound(T x) {
