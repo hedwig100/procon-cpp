@@ -36,6 +36,7 @@ h.o.dSYM
 *a.out
 solver.cpp
 solver.o
+main.o
 make_test.cpp
 make_test.o
 input.txt
@@ -46,3 +47,4 @@ score_calc.cpp
 /atcoder
 /venv
 /.vscode
+/tools

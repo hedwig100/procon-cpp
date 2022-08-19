@@ -77,15 +77,21 @@ marathon:
 	cp template/test.cpp make_test.cpp
 	cp template/algorithm.cpp score_calc.cpp
 	cp template/marathon.cpp main.cpp
+	mkdir tools/out
 
 # run one case
 main: main.o
-	./main.o < input.txt > output.txt 
+	./main.o < tools/in/0000.txt > tools/out/0000.txt 
+	cd tools && \
+	cargo run --release --bin vis in/0000.txt out/0000.txt && \
+	echo See the result from `pwd`/vis.html
+
+# miscellaneous 
 
 clean:
 	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out string/*.out \
 		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp \
-		  main.cpp score_calc.cpp
+		  main.cpp score_calc.cpp main.o
 
 .SECONDARY: make_test.o solver.o
 
