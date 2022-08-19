@@ -1,9 +1,14 @@
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 
-// Zalgorithum 最長共通接頭辞の長さ O(|S|)
-vector<int> Z(string s) {
-    int l = s.size();
+// Z-algorithum
+// l=(文字列Sの長さ)としてi=0,..,l-1に対して
+// Z[i] = (SとS[i:l)の最長共通接頭辞の長さ)
+// なる配列Aを返す。
+// complexity : O(|S|)
+vector<int> Z_algorithm(string s) {
+    int l = (int)s.size();
     vector<int> Z(l);
     Z[0]  = l;
     int i = 1, j = 0;
