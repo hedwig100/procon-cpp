@@ -65,6 +65,16 @@ ostream &operator<<(ostream &os, const map<K, V> &mp) {
     return os;
 }
 
+template <typename T>
+bool chmax(T &x, const T &y) {
+    return (x < y) ? (x = y, true) : false;
+}
+
+template <typename T>
+bool chmin(T &x, const T &y) {
+    return (x > y) ? (x = y, true) : false;
+}
+
 // grid searh
 const int dy[8] = {-1, 0, 1, 0, -1, -1, 1, 1};
 const int dx[8] = {0, 1, 0, -1, -1, 1, -1, 1};
