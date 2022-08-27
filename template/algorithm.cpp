@@ -75,13 +75,6 @@ bool chmin(T &x, const T &y) {
     return (x > y) ? (x = y, true) : false;
 }
 
-// grid searh
-const int dy[8] = {-1, 0, 1, 0, -1, -1, 1, 1};
-const int dx[8] = {0, 1, 0, -1, -1, 1, -1, 1};
-bool IN(int y, int x, int H, int W) { return (0 <= y) && (y < H) && (0 <= x) && (x < W); }
-// integer
-template <class T>
-T gcd(T a, T b) { return (b ? gcd(b, a % b) : a); }
 #pragma endregion
 
 int main() {

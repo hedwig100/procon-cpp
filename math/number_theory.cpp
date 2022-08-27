@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #include "../template/const.hpp"
-
-// a,bの最大公約数を求める
-template <class T>
-T gcd(T a, T b) { return (b ? gcd(b, a % b) : a); }
+#include "euclid.cpp"
 
 // aのk乗根を求める
 long long root_int(long long a, int k) {
@@ -17,23 +14,12 @@ long long root_int(long long a, int k) {
     return x;
 }
 
-// ax + by = gcd(a,b)を満たすx,yを求める
-long long x, y;
-long long extGCD(long long a, long long b, long long &x, long long &y) {
-    if (b == 0) {
-        x = 1;
-        y = 0;
-        return a;
-    }
-    long long d = extGCD(b, a % b, y, x);
-    y -= a / b * x;
-    return d;
-}
-
 // inverse
-long long modinv(long long a, long long MOD = MOD) {
-    long long x, y;
-    long long g = extGCD(a, MOD, x, y);
+template <typename T>
+T modinv(T a, T MOD = MOD) {
+    auto [x, y] = ext_gcd(a, MOD);
+
+    T g = a * x + b * y;
     if (g != 1) return -1;
     x %= MOD;
     if (x < 0) x += MOD;
