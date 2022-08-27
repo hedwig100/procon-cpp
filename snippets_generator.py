@@ -82,6 +82,7 @@ IGNORE_DIR = [
     "template",
     "test",
     "venv",
+    "tools",
 ]
 
 def main():
