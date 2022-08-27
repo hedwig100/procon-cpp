@@ -1,3 +1,4 @@
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,7 +6,7 @@ struct LowLink {
     int N;
     vector<vector<int>> G;
     vector<int> low, ord, articulation;
-    vector<P> bridge;
+    vector<pair<int,int>> bridge;
 
     LowLink(int N, vector<vector<int>> &G) : N(N), G(G) {
         low.assign(N, -1);

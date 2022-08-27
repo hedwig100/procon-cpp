@@ -1,37 +1,58 @@
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 
 struct FullyIndexableDictionary {
-    int len, block_size;
-    vector<unsigned> bit;
+    int bit_size, block_size;
+    vector<unsigned int> bit;
     vector<int> block;
 
-    FullyIndexableDictionary(int len = 0) : len(len), block_size((len + 32 - 1) >> 5) {
-        bit.resize(len, 0);
+    FullyIndexableDictionary(int bit_size = 0) : bit_size(bit_size), block_size((bit_size + 32 - 1) >> 5) {
+        bit.resize(bit_size, 0);
         block.resize(block_size, 0);
     }
+
+    // set(k) set the k-th bit
+    // constraint: 0 <= k < bit_size
+    // time complexity: O(1)
     void set(int k) {
         bit[k >> 5] |= 1U << (k & 31);
     }
+
     void build() {
         block[0] = 0;
         for (int i = 1; i < block_size; ++i) {
             block[i] = block[i - 1] + __builtin_popcount(bit[i - 1]);
         }
     }
+
+    // op[k] returns k-th bit
+    // constraint: 0 <= k < bit_size
+    // time complexity: O(1)
     bool operator[](int k) {
         return bool((bit[k >> 5] >> (k & 31)) & 1U);
     }
-    int rank(int k) { //[0,k) (0-indexed)
+
+    // _rank(k) returns the number of 1 in [0,k)
+    // constraint: 0 <= k <= bit_size
+    // time complexity: O(1)
+    int _rank(int k) {
         return block[k >> 5] + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1));
     }
+
+    // rank(v,k) returns the number of v in [0,k)
+    // constraint: 0 <= k <= bit_size,(v = 0 or v = 1)
+    // time complexity: O(1)
     int rank(bool v, int k) {
-        return (v ? rank(k) : k - rank(k));
+        return (v ? _rank(k) : k - _rank(k));
     }
-    // return position of k-th v (0-indexed)
+
+    // select(v,k) returns the k-th position of v
+    // constraint: k >= 0, (v = 0 or v = 1)
+    // time complexity: O(logN),N = bit_size
     int select(bool v, int k) {
-        if (k < 0 || rank(v, len) <= k) return -1;
-        int l = 0, r = len;
+        if (k < 0 || rank(v, bit_size) <= k) return -1;
+        int l = 0, r = bit_size;
         while (r - l > 1) {
             int mid = (r + l) >> 1;
             if (rank(v, mid) >= k + 1)
@@ -41,6 +62,7 @@ struct FullyIndexableDictionary {
         }
         return r - 1;
     }
+
     int select(bool v, int i, int l) {
         return select(v, i + rank(v, l));
     }
