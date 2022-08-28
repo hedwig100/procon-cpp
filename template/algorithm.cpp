@@ -65,6 +65,10 @@ ostream &operator<<(ostream &os, const map<K, V> &mp) {
     return os;
 }
 
+void yn(bool cond, string Yes = "Yes", string No = "No") {
+    cout << (cond ? Yes : No) << '\n';
+}
+
 template <typename T>
 bool chmax(T &x, const T &y) {
     return (x < y) ? (x = y, true) : false;
