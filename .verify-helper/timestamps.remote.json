@@ -1,10 +1,12 @@
 {
-"test/bfs.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/binary_indexed_tree.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/ext_gcd.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/gcd_convolutiion.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/ntt_recursive.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/sample.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/strongly_connected_components.test.cpp": "2022-08-27 13:12:48 +0900",
-"test/unionfind.test.cpp": "2022-08-27 13:12:48 +0900"
+"test/bfs.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/binary_indexed_tree.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/edit_distance.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/ext_gcd.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/gcd_convolutiion.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/longest_common_sequence.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/ntt_recursive.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/sample.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/strongly_connected_components.test.cpp": "2022-08-28 13:53:16 +0900",
+"test/unionfind.test.cpp": "2022-08-28 13:53:16 +0900"
 }
