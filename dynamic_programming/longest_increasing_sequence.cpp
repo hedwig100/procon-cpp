@@ -2,6 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// LongestIncreasingSequece
+// Aの最長増加部分列を求める. すなわち
+// 0 <= i1 < i2 < ... < ik < n, A[i1] < A[i2] < ... < A[ik]なるkの最大値を求める。
 template <typename T, T INF>
 struct LongestIncreasingSequence {
 
@@ -12,9 +15,6 @@ struct LongestIncreasingSequence {
     vector<T> A, dp;
     vector<int> prev, dp_ind;
 
-    // LongestIncreasingSequece
-    // Aの最長増加部分列を求める. すなわち
-    // 0 <= i1 < i2 < ... < ik < n, A[i1] < A[i2] < ... < A[ik]なるkの最大値を求める。
     LongestIncreasingSequence(int n, vector<T> &A) : n(n), A(A) {
         dp.assign(n + 1, INF);
         dp_ind.assign(n + 1, -1);

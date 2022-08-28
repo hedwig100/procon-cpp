@@ -2,14 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// PartionNumber
+// n個の区別できないものをk個の区別できない箱に0個以上に分割する方法が何通りあるか求める.
+// これをP(n,k)とするとP(n,0) = 0 (n > 0)
 template <typename T>
 struct PartitionNumber {
     int n, k;
     vector<vector<T>> dp;
 
-    // PartionNumber
-    // n個の区別できないものをk個の区別できない箱に0個以上に分割する方法が何通りあるか求める.
-    // これをP(n,k)とするとP(n,0) = 0 (n > 0)
     PartitionNumber(int n, int k) : n(n), k(k) {
         dp.assign(n + 1, vector<T>(k + 1, T(0)));
     }

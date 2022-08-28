@@ -2,14 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Bfs
+// nは頂点数, Gはグラフを隣接リスト形式で持ったもの
 template <typename T>
 struct Bfs {
     int n;
     vector<vector<int>> G;
     vector<int> dist, prev_v;
 
-    // Bfs
-    // nは頂点数, Gはグラフを隣接リスト形式で持ったもの
     Bfs(int n, vector<vector<int>> G) : n(n), G(G) {
         dist.assign(n, -1);
         prev_v.assign(n, -1);

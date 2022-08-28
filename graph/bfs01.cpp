@@ -4,13 +4,13 @@ using namespace std;
 
 // https://atcoder.jp/contests/arc005/submissions/34363432
 
+// Bfs01
+// nは頂点数, Gは隣接リストで隣接頂点とその頂点との距離(0 or 1)をもつ
 struct Bfs01 {
     int n;
     vector<vector<pair<int, int>>> G;
     vector<int> dist;
 
-    // Bfs01
-    // nは頂点数, Gは隣接リストで隣接頂点とその頂点との距離(0 or 1)をもつ
     Bfs01(int n, vector<vector<pair<int, int>>> &G) : n(n), G(G) {
         dist.assign(n, -1);
     }
