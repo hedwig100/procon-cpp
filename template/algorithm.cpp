@@ -2,14 +2,14 @@
 using namespace std;
 #ifdef LOCAL_
 void debug_out() {
-    cerr << endl;
+    cerr << "\033[0m" << endl;
 }
 template <typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {
     cerr << ' ' << H << ',';
     debug_out(T...);
 }
-#define debug(...) cerr << __func__ << ":L" << __LINE__ << " " << #__VA_ARGS__ << ":", debug_out(__VA_ARGS__)
+#define debug(...) cerr << "\033[1;36m" << __func__ << ":L" << __LINE__ << " " << #__VA_ARGS__ << ":", debug_out(__VA_ARGS__)
 #define dump(x) cerr << __func__ << ":L" << __LINE__ << " " << #x << " = " << (x) << endl
 #else
 #define debug(...) (void(0))
@@ -26,7 +26,7 @@ using pli = pair<ll, int>;
 using pll = pair<ll, ll>;
 
 constexpr int INF        = 1000'000'000;
-constexpr long long HINF = 4000'000'000'000'000'000;
+constexpr long long HINF = 4000'000'000000'000'000;
 constexpr long long MOD  = 1000000007; // = 998244353;
 constexpr double EPS     = 1e-4;
 constexpr double PI      = 3.14159265358979;
