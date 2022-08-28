@@ -2,19 +2,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// UnionFind
+// グループを管理するデータ構造
 struct UnionFind {
-    int N;
+    int n;
     vector<int> parents;
 
-    UnionFind(int _N) : N(_N) {
-        parents.assign(N, -1);
+    UnionFind(int n) : n(n) {
+        parents.assign(n, -1);
     }
 
-    int find(int x) { // xの親を返す
+    // find
+    // xの親を返す.
+    // 制約: 0 <= x < n
+    int find(int x) {
         if (parents[x] < 0) return x;
         return parents[x] = find(parents[x]);
     }
 
+    // unite
+    // xとyを含むグループを併合
+    // 制約: 0 <= x,y < n
     void unite(int x, int y) { // xとyの含むグループを併合
         int px = find(x);
         int py = find(y);
@@ -25,27 +33,33 @@ struct UnionFind {
         }
     }
 
-    bool same(int x, int y) { // x,yが同じグループにいるか判定
+    // same
+    // xとyが同じグループにいるか判定
+    // 制約: 0 <= x,y < n
+    bool same(int x, int y) {
         return find(x) == find(y);
     }
 
-    int size(int x) { // xと同じグループのメンバーの個数
+    // size
+    // xと同じグループのメンバーの個数
+    // 制約: 0 <= x < n
+    int size(int x) {
         return -parents[find(x)];
     }
 
-    vector<int> root() { // ufの根を列挙
+    // root
+    // 根を全て列挙する
+    vector<int> root() {
         vector<int> res;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             if (parents[i] < 0) res.push_back(i);
         }
         return res;
     }
 
+    // group_count
+    // グループの数を返す.
     int group_count() { // ufのグループの数を数える
-        int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            if (parents[i] < 0) cnt++;
-        }
-        return cnt;
+        return (int)root().size();
     }
 };
