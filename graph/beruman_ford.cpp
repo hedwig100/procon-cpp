@@ -1,7 +1,6 @@
 #pragma once
 #include <bits/stdc++.h>
 using namespace std;
-#include "../template/const.hpp"
 
 // beruman_ford
 // 負辺を含むグラフを受け取り, sからの最短経路を計算する.
