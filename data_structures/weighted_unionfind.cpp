@@ -38,7 +38,7 @@ struct WeightedUnionFind {
     }
 
     // diff
-    // xとyが同じグループにいる時, xとyの重みの差を返す.
+    // xとyが同じグループにいる時, xに対するyの重みを返す.
     // xとyが同じグループにいない時, 返す値には意味がない.
     // 制約: 0 <= x,y < n, xとyは同じグループ
     Abel diff(int x, int y) {
