@@ -73,7 +73,7 @@ struct TwoPointers {
 //
 template <typename Data, const Data initial_state>
 struct TwoPointers2 {
-    using Fcond = function<bool(Data data, int r)>;
+    using Fcond = function<bool(Data data)>;
     using Fincl = function<void(Data &data, int &l)>;
     using Fincr = function<void(Data &data, int &r)>;
 
