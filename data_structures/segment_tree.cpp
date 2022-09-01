@@ -2,58 +2,83 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template <class Monoid>
+// SegmentTree
+// Monはモノイド, すなわち *: Mon × Mon -> Monなる演算とe(単位元)があって,
+// 以下を満たすもの.
+// - e * a = a * e = a
+// - a * (b * c) = (a * b) * c
+//
+// 以下の二つの操作ができる.
+// 1. A[x]を更新する
+// 2. A[l]*...*A[r-1] を計算する
+template <typename Mon>
 struct SegmentTree {
-    int N;
-    vector<Monoid> tree;
+    using Fx = function<Mon(Mon, Mon)>;
 
-    // depending on the problem
-    Monoid unit;
-    using FX = function<Monoid(Monoid, Monoid)>;
-    FX func;
-    //
+    int n;
+    vector<Mon> tree;
+    Fx op;
+    Mon e;
 
-    SegmentTree(int _N, Monoid _unit, FX _func) : N(_N), unit(_unit), func(_func) {
-        tree.assign(2 * N, unit);
+    SegmentTree(int n, Fx op, Mon e) : n(n), op(op), e(e) {
+        tree.assign(2 * n, e);
     }
 
-    void build(vector<Monoid> &array) {
-        for (int i = N; i < 2 * N; i++)
-            tree[i] = array[i - N];
-        for (int i = N - 1; i > 0; i--)
-            tree[i] = func(tree[i << 1], tree[i << 1 | 1]);
+    // build
+    // arrayで初期化する.
+    void build(vector<Mon> &array) {
+        for (int i = n; i < 2 * n; i++)
+            tree[i] = array[i - n];
+        for (int i = n - 1; i > 0; i--)
+            tree[i] = op(tree[i << 1], tree[i << 1 | 1]);
     }
 
-    void update(int k, Monoid x) {
-        k += N;
-        tree[k] = func(tree[k], x);
+    // update
+    // A[k] = A[k] * x と更新する
+    // 制約: 0 <= k < n
+    // 計算量: O(logn)
+    void update(int k, Mon x) {
+        k += n;
+        tree[k] = op(tree[k], x);
         while (k > 1) {
             k >>= 1;
-            tree[k] = func(tree[k << 1], tree[k << 1 | 1]);
+            tree[k] = op(tree[k << 1], tree[k << 1 | 1]);
         }
     }
 
-    Monoid query(int L, int R) {
-        L += N;
-        R += N;
-        Monoid vL = unit, vR = unit;
-        while (L < R) {
-            if (L & 1) {
-                vL = func(vL, tree[L]);
-                L++;
-            }
-            if (R & 1) {
-                R--;
-                vR = func(tree[R], vR);
-            }
-            L >>= 1;
-            R >>= 1;
+    // set
+    // A[k] = x と更新する
+    // 制約: 0 <= k < n
+    // 計算量: O(logn)
+    void set(int k, Mon x) {
+        k += n;
+        tree[k] = x;
+        while (k > 1) {
+            k >>= 1;
+            tree[k] = op(tree[k << 1], tree[k << 1 | 1]);
         }
-        return func(vL, vR);
     }
 
-    void debug() {
-        for (int i = 0; i < 2 * N; ++i)
-            cout << "  st[" << i << "] : " << tree[i];
+    // prod
+    // A[l]*...*A[r-1] を計算する. l = rのときはeを返す.
+    // 制約: 0 <= l <= r <= n
+    // 計算量: O(logn)
+    Mon prod(int l, int r) {
+        l += n;
+        r += n;
+        Mon vl = e, vr = e;
+        while (l < r) {
+            if (l & 1) {
+                vl = op(vl, tree[l]);
+                l++;
+            }
+            if (r & 1) {
+                r--;
+                vr = op(tree[r], vr);
+            }
+            l >>= 1;
+            r >>= 1;
+        }
+        return op(vl, vr);
     }
 };
