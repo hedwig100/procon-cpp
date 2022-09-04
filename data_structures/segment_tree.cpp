@@ -118,7 +118,7 @@ struct SegmentTree {
                 }
                 return r - size;
             }
-        } while ((r & -r) == r);
+        } while ((r & -r) != r);
         return n;
     }
 };
