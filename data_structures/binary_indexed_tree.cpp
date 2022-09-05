@@ -43,7 +43,9 @@ struct BinaryIndexedTree {
     // 制約: 0 <= k < n (それ以外は0を返す)
     // 計算量: O(logn)
     T sum(int k) {
-        if (k < 0 || k >= n) return 0;
+        if (k < 0) return 0;
+        k = min(k, n - 1);
+
         T ret = 0;
         for (int i = ++k; i > 0; i -= (i & -i)) {
             ret += data[i];
