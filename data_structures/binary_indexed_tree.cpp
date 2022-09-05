@@ -2,71 +2,75 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template <class T>
+// BinaryIndexedTree
+// 可換群Tについて以下の二つの操作が可能
+//
+// 1. A[0] + A[1] + ... + A[k] を求める.
+// 2. A[k] += x と更新.
+//
+template <typename T>
 struct BinaryIndexedTree {
-    int N;         // array length
-    int power = 1; // minimum power of 2 larger than N (power = 2^i > N)
-    vector<T> bit; // bit data array
+    int n, size;
+    int power;
+    vector<T> data;
 
-    BinaryIndexedTree(int N = 0) : N(N) {
-        bit.assign(N + 1, 0);
-        while (power <= N)
-            power <<= 1; // power > N
+    BinaryIndexedTree(int n) : n(n) {
+        size = 1;
+        while (size < n)
+            size <<= 1;
+        data.assign(size + 1, 0);
     }
 
-    // BinaryIndexedTree receives an initial array and build.
-    // complexity: O(NlogN)
-    BinaryIndexedTree(const vector<T> &A) {
-        N = (int)A.size();
-        bit.assign(N + 1, 0);
-        while (power <= N)
-            power <<= 1; // power > N
-
-        // build
-        for (int i = 0; i < N; ++i)
+    // build
+    // Aで初期化
+    void build(const vector<T> &A) {
+        for (int i = 0; i < n; ++i)
             add(i, A[i]);
     }
 
-    // add x to a[i]
-    // constraint: 0 <= i < N
-    // complexity: O(logN)
-    void add(int i, T x) {
-        for (int idx = ++i; idx <= N; idx += (idx & -idx)) {
-            bit[idx] += x;
+    // add
+    // A[k]にxを加える.
+    // 制約: 0 <= k < n
+    // 計算量: O(logn)
+    void add(int k, T x) {
+        for (int i = ++k; i <= n; i += (i & -i)) {
+            data[i] += x;
         }
     }
 
-    // sum(k) returns sum_{0 <= i <= k} a[i]
-    // constraint: 0 <= k < N
-    // complexity: O(logN)
+    // sum
+    // Σ_{0 <= i <= k} A[i]を求める.
+    // 制約: 0 <= k < n (それ以外は0を返す)
+    // 計算量: O(logn)
     T sum(int k) {
+        if (k < 0 || k >= n) return 0;
         T ret = 0;
-        for (int idx = ++k; idx > 0; idx -= (idx & -idx)) {
-            ret += bit[idx];
+        for (int i = ++k; i > 0; i -= (i & -i)) {
+            ret += data[i];
         }
         return ret;
     }
 
-    // sum(l,r) returns sum_{l <= i < r} a[i]
-    // constraint: 0 <= l < r <= N
-    // complexity: O(logN)
+    // sum
+    // Σ_{l <= i < r} A[i]を求める.
+    // 制約: 0 <= l <= r <= N
+    // 計算量: O(logN)
     T sum(int l, int r) {
-        if (l == 0) return sum(r - 1);
         return sum(r - 1) - sum(l - 1);
     }
 
-    // あやしい
-    // lower_bound returns minimum index k s.t. sum_{0 <= i <= k} >= x
-    // constraint: a[i] >= 0 for all i
-    // complexity: O(logN)
+    // lower_bound
+    // Σ_{0 <= i <= k} >= x を満たす最小のインデックスkを返す. そのようなものが存在しなければnを返す.
+    // 制約: A[i] >= 0
+    // 計算量: O(logN)
     int lower_bound(T x) {
         int k = 0;
-        for (int r = power >> 1; r > 0; r >>= 1) {
-            if (k + r <= N && bit[k + r] < x) {
-                x -= bit[k + r];
+        for (int r = size; r > 0; r >>= 1) {
+            if (k + r <= size && data[k + r] < x) {
+                x -= data[k + r];
                 k += r;
             }
         }
-        return k;
+        return min(k, n);
     }
 };

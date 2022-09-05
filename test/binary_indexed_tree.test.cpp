@@ -1,8 +1,8 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
-
-#include "../data_structures/binary_indexed_tree.cpp"
 #include <bits/stdc++.h>
 using namespace std;
+
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+#include "../data_structures/binary_indexed_tree.cpp"
 
 int main() {
     int N, Q;
@@ -10,7 +10,8 @@ int main() {
     vector<long long> A(N);
     for (int i = 0; i < N; i++)
         cin >> A[i];
-    BinaryIndexedTree<long long> bit(A);
+    BinaryIndexedTree<long long> bit(N);
+    bit.build(A);
 
     int t, p, x, l, r;
     for (int i = 0; i < Q; i++) {
