@@ -8,8 +8,11 @@ INCLUDE = -I ./ac-library/
 %.exe: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $@ $^
 
-test%: %.o make_test.o solver.o
-	./test.sh $< 20
+test%: %.o make_test.o judge.o
+	./make_test.o > input.txt 
+	./$< < input.txt >> input.txt 
+	./judge.o < input.txt
+	if [ $$? -eq 0 ]; then echo "OK"; else echo "Failed"; exit 1; fi
 
 a: a.o
 	./a.o
@@ -62,6 +65,7 @@ ach: h.exe
 setup:
 	cp template/test.cpp make_test.cpp
 	cp template/algorithm.cpp solver.cpp
+	cp template/algorithm.cpp judge.cpp
 	cp template/algorithm.cpp a.cpp
 	cp template/algorithm.cpp b.cpp
 	cp template/algorithm.cpp c.cpp
@@ -91,8 +95,8 @@ main: main.o
 clean:
 	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out string/*.out \
 		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp \
-		  main.cpp score_calc.cpp main.o
+		  main.cpp score_calc.cpp main.o judge.cpp judge.o
 
-.SECONDARY: make_test.o solver.o
+.SECONDARY: make_test.o solver.o judge.o
 
 .PHONY: test clean

@@ -36,6 +36,8 @@ h.o.dSYM
 *a.out
 solver.cpp
 solver.o
+judge.cpp 
+judge.o
 main.o
 make_test.cpp
 make_test.o
