@@ -2,35 +2,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TODO:refactor BinaryIndexedTree2D
-// 1-indexed
-template <class T>
+// BinaryIndexedTree2D
+template <typename T>
 struct BinaryIndexedTree2D {
-    int H, W;
-    std::vector<std::vector<T>> bit;
-    BinaryIndexedTree2D(int H = 0, int W = 0) : H(H), W(W) {
-        bit.assign(H + 1, std::vector<T>(W + 1, 0));
+    int h, w;
+    vector<vector<T>> data;
+
+    BinaryIndexedTree2D(int h, int w) : h(h), w(w) {
+        data.assign(h + 1, std::vector<T>(w + 1, 0));
     }
-    // add x to a[h][w]
-    void add(int h, int w, T x) {
-        for (int i = h; i <= H; i += (i & -i)) {
-            for (int j = w; j <= W; j += (j & -j)) {
-                bit[i][j] += x;
+
+    // add
+    // A[k][l] += xとする.
+    // 制約: 0 <= k < h,0 <= l < w
+    // 計算量: O(loghlogw)
+    void add(int k, int l, T x) {
+        k++, l++;
+        for (int i = k; i <= h; i += (i & -i)) {
+            for (int j = l; j <= w; j += (j & -j)) {
+                data[i][j] += x;
             }
         }
     }
-    // return sum of a[i][j] s.t. (1 <= i <= h and 1 <= j <= w)
-    T sum(int h, int w) {
+
+    // _sum
+    // Σ_{0 <= i <= k,0 <= j <= l} A[i][j]を求める.
+    // 制約: 0 <= k < h,0 <= l < w
+    // 計算量: O(loghlogw)
+    T _sum(int k, int l) {
+        if (k < 0 || l < 0) return 0;
+        k = min(k, h - 1);
+        l = min(l, w - 1);
+
         T ret = 0;
-        for (int i = h; i > 0; i -= (i & -i)) {
-            for (int j = w; j > 0; j -= (j & -j)) {
-                ret += bit[i][j];
+        k++, l++;
+        for (int i = k; i > 0; i -= (i & -i)) {
+            for (int j = l; j > 0; j -= (j & -j)) {
+                ret += data[i][j];
             }
         }
         return ret;
     }
-    // return sum of a[i][j] s.t. (h1 <= i < h2 and w1 <= j < w2)
-    T query(int h1, int h2, int w1, int w2) {
-        return sum(h2 - 1, w2 - 1) - sum(h2 - 1, w1 - 1) - sum(h1 - 1, w2 - 1) + sum(h1 - 1, w1 - 1);
+
+    // sum
+    // Σ_{h1 <= i < h2 and w1 <= j < w2}A[i][j]を求める.
+    // 制約: 0 <= h1 <= h2 <= h,0 <= w1 <= w2 <= w
+    // 計算量: O(loghlogw)
+    T sum(int h1, int h2, int w1, int w2) {
+        return _sum(h2 - 1, w2 - 1) - _sum(h2 - 1, w1 - 1) - _sum(h1 - 1, w2 - 1) + _sum(h1 - 1, w1 - 1);
     }
 };
