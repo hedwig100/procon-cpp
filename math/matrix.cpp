@@ -1,31 +1,37 @@
 #pragma once
 #include <bits/stdc++.h>
 using namespace std;
-#include "../math/mint.cpp"
 
-using Matrix = vector<vector<mint>>;
+template <typename T>
+using Matrix = vector<vector<T>>;
 
-Matrix mat_mul(Matrix &A, Matrix &B) {
-    Matrix ans(A.size(), vector<mint>(B[0].size(), 0));
-    for (int i = 0; i < A.size(); i++) {
-        for (int j = 0; j < A[0].size(); j++) {
-            for (int k = 0; k < A[0].size(); k++) {
-                ans[i][j] += A[i][k] * B[k][j];
+template <typename T>
+Matrix<T> mul(const Matrix<T> &a, const Matrix<T> &b) {
+    assert(a[0].size() == b.size());
+    Matrix<T> c(a.size(), vector<T>(b[0].size()));
+    for (int i = 0; i < (int)a.size(); i++) {
+        for (int j = 0; j < (int)a[0].size(); j++) {
+            for (int k = 0; k < (int)b[0].size(); k++) {
+                c[i][k] += a[i][j] * b[j][k];
             }
         }
     }
-    return ans;
+    return c;
 }
 
-Matrix mat_pow(Matrix &A, long long N) {
-    Matrix ans(A.size(), vector<mint>(A.size(), 0));
-    for (int i = 0; i < A.size(); i++)
+template <typename T, typename U>
+Matrix<T> pow(Matrix<T> a, U n) {
+    assert(a.size() == a[0].size());
+    int m = (int)a.size();
+    Matrix<T> ans(m, vector<T>(m, 0));
+    for (int i = 0; i < m; i++)
         ans[i][i] = 1;
-    Matrix X = A;
-    while (N > 0) {
-        if (N & 1) ans = mat_mul(ans, X);
-        N >>= 1;
-        X = mat_mul(X, X);
+    while (n > 0) {
+        if (n & 1) {
+            ans = mul(ans, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
     }
     return ans;
 }
