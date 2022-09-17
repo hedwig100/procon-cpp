@@ -31,7 +31,6 @@ struct PrimalDual {
 
     // add_edge
     // fromからtoへ容量cap, コストcostの辺を張る.
-    // すでに逆辺が貼られている場合, 壊れる.
     // 制約: 0 <= from,to < n,cap >= 0,
     void add_edge(int from, int to, Cap cap, Cost cost) {
         G[from].push_back((edge){to, cap, cost, (int)G[to].size()});
