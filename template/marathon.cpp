@@ -81,6 +81,12 @@ bool chmin(T &x, const T &y) {
 
 #pragma endregion
 
+#ifdef LOCAL_
+#define TIMELIMIT (10.0)
+#else
+#define TIMELIMIT (2.9)
+#endif
+
 // random seed
 random_device seed_gen;
 mt19937_64 rnd(seed_gen());
