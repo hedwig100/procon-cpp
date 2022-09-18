@@ -52,4 +52,9 @@ struct ModInt {
     }
 };
 
+template <typename U, int MOD>
+inline ModInt<MOD> operator*(const U &c, const ModInt<MOD> &a) { return {c * a.x}; }
+template <typename U, int MOD>
+inline ModInt<MOD> operator/(const U &c, const ModInt<MOD> &a) { return {a.x * ModInt(c).inverse()}; }
+
 using mint = ModInt<998244353>;
