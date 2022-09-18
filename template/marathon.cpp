@@ -2,20 +2,18 @@
 using namespace std;
 #ifdef LOCAL_
 void debug_out() {
-    cerr << endl;
+    cerr << "\033[0m" << endl;
 }
 template <typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {
     cerr << ' ' << H << ',';
     debug_out(T...);
 }
-#define debug(...) cerr << __func__ << ":L" << __LINE__ << " " << #__VA_ARGS__ << ":", debug_out(__VA_ARGS__)
+#define debug(...) cerr << "\033[1;36m" << __func__ << ":L" << __LINE__ << " " << #__VA_ARGS__ << ":", debug_out(__VA_ARGS__)
 #define dump(x) cerr << __func__ << ":L" << __LINE__ << " " << #x << " = " << (x) << endl
-#define TIMELIMIT (10.0)
 #else
 #define debug(...) (void(0))
 #define dump(x) (void(0))
-#define TIMELIMIT (2.9)
 #endif
 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
@@ -28,7 +26,7 @@ using pli = pair<ll, int>;
 using pll = pair<ll, ll>;
 
 constexpr int INF        = 1000'000'000;
-constexpr long long HINF = 4000'000'000'000'000'000;
+constexpr long long HINF = 4000'000'000000'000'000;
 constexpr long long MOD  = 1000000007; // = 998244353;
 constexpr double EPS     = 1e-4;
 constexpr double PI      = 3.14159265358979;
@@ -67,13 +65,20 @@ ostream &operator<<(ostream &os, const map<K, V> &mp) {
     return os;
 }
 
-// grid searh
-const int dy[8] = {-1, 0, 1, 0, -1, -1, 1, 1};
-const int dx[8] = {0, 1, 0, -1, -1, 1, -1, 1};
-bool IN(int y, int x, int H, int W) { return (0 <= y) && (y < H) && (0 <= x) && (x < W); }
-// integer
-template <class T>
-T gcd(T a, T b) { return (b ? gcd(b, a % b) : a); }
+void yn(bool cond, string Yes = "Yes", string No = "No") {
+    cout << (cond ? Yes : No) << '\n';
+}
+
+template <typename T>
+bool chmax(T &x, const T &y) {
+    return (x < y) ? (x = y, true) : false;
+}
+
+template <typename T>
+bool chmin(T &x, const T &y) {
+    return (x > y) ? (x = y, true) : false;
+}
+
 #pragma endregion
 
 // random seed

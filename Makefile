@@ -81,6 +81,7 @@ marathon:
 	cp template/test.cpp make_test.cpp
 	cp template/algorithm.cpp score_calc.cpp
 	cp template/marathon.cpp main.cpp
+	mv $$HOME/Downloads/tools ./tools
 	mkdir tools/out
 
 # run one case

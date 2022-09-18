@@ -48,5 +48,5 @@ main.cpp
 score_calc.cpp
 /atcoder
 /venv
-/.vscode
 /tools
+/.vscode/procon.code-snippets
