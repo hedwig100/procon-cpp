@@ -6,9 +6,11 @@ using namespace std;
 
 /* Line */
 
+constexpr long double GEOMETRY_INFTY = 1e9;
+
 // 無限遠点
 template <typename T>
-constexpr Point<T> INFTY(1e9, 1e9);
+constexpr Point<T> INFTY(GEOMETRY_INFTY, GEOMETRY_INFTY);
 
 // 直線
 template <typename T>

@@ -6,7 +6,7 @@ constexpr long double GEOMETRY_EPS = 1e-8;
 
 // sgn
 // a > 0なら1, a = 0なら0,a < 0なら-1を返す.
-constexpr inline int sgn(const double a) { return (a < -GEOMETRY_EPS ? -1 : (a > GEOMETRY_EPS ? 1 : 0)); }
+constexpr inline int sgn(const long double a) { return (a < -GEOMETRY_EPS ? -1 : (a > GEOMETRY_EPS ? 1 : 0)); }
 constexpr inline int sgn(const int a) { return (a < 0 ? -1 : (a > 0 ? 1 : 0)); }
 
 // 2次元座標クラス
@@ -85,22 +85,22 @@ constexpr inline T length2(const Point<T> &p) { return dot(p, p); }
 // length
 // ベクトルpの長さ(原点からの距離)を求める.
 template <typename T>
-inline double length(const Point<T> &p) { return sqrt(length2(p)); }
+inline long double length(const Point<T> &p) { return sqrt(length2(p)); }
 
 // dist
 // 点pと点qの間の距離を求める.
 template <typename T>
-inline double dist(const Point<T> &p, const Point<T> &q) { return length(p - q); }
+inline long double dist(const Point<T> &p, const Point<T> &q) { return length(p - q); }
 
 // sgn_area
 // p,q,rがつくる三角形の符号付き面積
 template <typename T>
-constexpr inline double sgn_area(const Point<T> &p, const Point<T> &q, const Point<T> &r) { return cross(q - p, r - p) / 2.0; }
+constexpr inline long double sgn_area(const Point<T> &p, const Point<T> &q, const Point<T> &r) { return cross(q - p, r - p) / 2.0; }
 
 // area
 // p,q,rがつくる三角形の面積
 template <typename T>
-constexpr inline double area(const Point<T> &p, const Point<T> &q, const Point<T> &r) { return abs(sgn_area(p, q, r)); }
+constexpr inline long double area(const Point<T> &p, const Point<T> &q, const Point<T> &r) { return abs(sgn_area(p, q, r)); }
 
 // normalize
 // 点pを長さ1に正規化した点を返す.
@@ -115,7 +115,7 @@ inline Point<long double> rotation(const Point<T> &p, double arg) { return Point
 // angle
 // 点pのx軸の正の方向から反時計回りに測った角度を[-pi,pi]で返す.
 template <typename T>
-inline double angle(const Point<T> &p) { return atan2(p.y, p.x); }
+inline long double angle(const Point<T> &p) { return atan2(p.y, p.x); }
 
 // rot90
 // 点pを反時計回りに90度回転
