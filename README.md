@@ -1,6 +1,6 @@
-# procon_lib
+# procon-cpp
 
-procon_lib is a library for programming contest.
+procon-cpp is a library for programming contest.
 
 ## Setup 
 
@@ -20,11 +20,6 @@ python3 snippets_generator.py
 ```
 oj-verify run
 ```
-
-## Branch
-
-- [C++](https://github.com/hedwig100/procon_lib)
-- [Rust](https://github.com/hedwig100/procon_lib/tree/rust)
 
 ## Check
 
