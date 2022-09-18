@@ -89,5 +89,12 @@ Line<long double> vertical_bisector(const Point<long double> &p, const Point<lon
 }
 
 // example:
+// using P = Point<int>;
 // using L = Line<int>;
+// using S = Segment<int>;
+// using R = Ray<int>;
+//
+// using P = Point<long double>;
 // using L = Line<long double>;
+// using S = Segment<long double>;
+// using R = Ray<long double>;

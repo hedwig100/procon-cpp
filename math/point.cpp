@@ -123,7 +123,7 @@ template <typename T>
 constexpr inline Point<T> rot90(const Point<T> &p) { return Point(-p.y, p.x); }
 
 // iSP
-// 点a,b,cの位置関係を返す.
+// 異なる3点a,b,cの位置関係を返す.
 template <typename T>
 int iSP(const Point<T> &a, const Point<T> &b, const Point<T> &c) {
     if (sgn(cross(c - b, a - b)) > 0) return 1;  // ab bc __/: +1
