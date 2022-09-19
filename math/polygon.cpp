@@ -38,3 +38,29 @@ long double polygon_area(const vector<Point<T>> &points) {
         ret += sgn_area(points[0], points[i + 1], points[i + 2]);
     return abs(ret);
 }
+
+// diameter
+// 凸多角形convexの直径(最遠点対の距離)を求める.
+template <typename T>
+long double diameter(const vector<Point<T>> &convex) {
+    int n = (int)convex.size();
+    if (n == 2)
+        return dist(convex[0], convex[1]);
+
+    int i = 0, j = 0;
+    for (int k = 0; k < n; k++) {
+        if (convex[i] < convex[k]) i = k;
+        if (convex[j] > convex[k]) j = k;
+    }
+
+    long double ret = 0;
+    int si = i, sj = j;
+    while (i != sj || j != si) {
+        ret = max(ret, dist(convex[i], convex[j]));
+        if (sgn(cross(convex[(i + 1) % n] - convex[i], convex[(j + 1) % n] - convex[j])) < 0)
+            i = (i + 1) % n;
+        else
+            j = (j + 1) % n;
+    }
+    return ret;
+}
