@@ -95,7 +95,7 @@ inline long double dist(const Point<T> &p, const Point<T> &q) { return length(p 
 // sgn_area
 // p,q,rがつくる三角形の符号付き面積
 template <typename T>
-constexpr inline long double sgn_area(const Point<T> &p, const Point<T> &q, const Point<T> &r) { return cross(q - p, r - p) / 2.0; }
+constexpr inline long double sgn_area(const Point<T> &p, const Point<T> &q, const Point<T> &r) { return (long double)cross(q - p, r - p) / 2.0; }
 
 // area
 // p,q,rがつくる三角形の面積

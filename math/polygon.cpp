@@ -25,3 +25,16 @@ vector<Point<T>> convex_hull(vector<Point<T>> points) {
     convex.resize(k - 1);
     return convex;
 }
+
+// polygon_area
+// pointsのn点からなる多角形Gの面積を求める.
+// Gはpoints[i],points[(i + 1)%n]の2つの頂点を結ぶ線分を
+// 辺とする多角形である.
+template <typename T>
+long double polygon_area(const vector<Point<T>> &points) {
+    int n           = (int)points.size();
+    long double ret = 0;
+    for (int i = 0; i + 2 < n; i++)
+        ret += sgn_area(points[0], points[i + 1], points[i + 2]);
+    return abs(ret);
+}
