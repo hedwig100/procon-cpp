@@ -20,6 +20,7 @@ struct Line {
     Line(const Point<T> &begin, const Point<T> &end) : begin(begin), end(end) {}
 
     constexpr inline Point<T> vec() const { return end - begin; }
+    constexpr inline Point<T> countervec() const { return begin - end; }
 };
 
 // 半直線
@@ -71,7 +72,20 @@ long double pl_distance(const Point<T> &p, const Line<T> &l) { return abs((long 
 // ps_distance
 // 点pと線分sの距離を求める.
 template <typename T>
-long double ps_distance(const Point<T> &p, const Segment<T> &s) { return min({length(p - s.begin), length(p - s.end), pl_distance(p, s)}); }
+long double ps_distance(const Point<T> &p, const Segment<T> &s) {
+    if (sgn(dot(s.vec(), p - s.begin)) < 0 || sgn(dot(s.countervec(), p - s.end)) < 0) {
+        return min(dist(p, s.begin), dist(p, s.end));
+    }
+    return pl_distance(p, s);
+}
+
+// ss_distance
+// 線分s1と線分s2の距離を求める.
+template <typename T>
+long double ss_distance(const Segment<T> &s1, const Segment<T> &s2) {
+    if (ss_intersection(s1, s2).first) return 0;
+    return min({ps_distance(s1.begin, s2), ps_distance(s1.end, s2), ps_distance(s2.begin, s1), ps_distance(s2.end, s1)});
+}
 
 // proj
 // ベクトルpを直線lに射影した点を返す.

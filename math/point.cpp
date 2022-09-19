@@ -85,7 +85,7 @@ constexpr inline T length2(const Point<T> &p) { return dot(p, p); }
 // length
 // ベクトルpの長さ(原点からの距離)を求める.
 template <typename T>
-inline long double length(const Point<T> &p) { return sqrt(length2(p)); }
+inline long double length(const Point<T> &p) { return sqrt((long double)length2(p)); }
 
 // dist
 // 点pと点qの間の距離を求める.
@@ -105,7 +105,7 @@ constexpr inline long double area(const Point<T> &p, const Point<T> &q, const Po
 // normalize
 // 点pを長さ1に正規化した点を返す.
 template <typename T>
-inline Point<long double> normalize(const Point<T> &p) { return p / length(p); }
+inline Point<long double> normalize(const Point<T> &p) { return (Point<long double>)p / length(p); }
 
 // rotation
 // 点pを反時計回りにargだけ回転させた点を返す. (argはradで測る)
