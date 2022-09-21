@@ -83,6 +83,7 @@ IGNORE_DIR = [
     "test",
     "venv",
     "tools",
+    "result"
 ]
 
 def main():
@@ -95,7 +96,7 @@ def main():
             continue
         for file in os.listdir(dir_path):
             file_path = os.path.join(dir_path,file)
-            prefix = file.rstrip(".cpp")
+            prefix = file[:-4] # file = "a.cpp"
             snippets.append(create_snippet(file_path,f"snp {prefix}"))
 
     output_snippets(snippets)
