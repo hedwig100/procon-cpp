@@ -1,20 +1,64 @@
 #pragma once
 #include <bits/stdc++.h>
 using namespace std;
-#include "../template/const.hpp"
+
 #include "euclid.cpp"
 
-// garner
-long long garner(vector<long long> &R, vector<long long> &M) {
-    long long x    = R[0] % M[0];
-    long long prod = M[0];
-    for (int i = 1; i < R.size(); i++) {
-        long long t = ((R[i] - x) * modinv(prod, M[i])) % M[i];
-        if (t < 0) t += M[i];
-        x += t * prod;
-        prod *= M[i];
+// pow_mod
+// x^k mod mを計算する.
+// 計算量: O(logk)
+template <typename T>
+T pow_mod(T x, long long k, int m) {
+    T ret = T(1);
+    while (k > 0) {
+        if (k & 1) {
+            ret *= x;
+            ret %= m;
+        }
+        k >>= 1;
+        x *= x;
+        x %= m;
     }
-    return x;
+    return ret;
+}
+
+// inv_mod
+// ax = 1 (mod m) なるx (0 <= x < m)が存在するならば
+// それを返し, 存在しなければ-1を返す.
+// 計算量: O(log|max(a,m)|)
+template <typename T>
+T inv_mod(T a, T m) {
+    auto [x, y] = ext_gcd(a, m);
+    T g         = a * x + m * y;
+    if (g != 1) return -1;
+    return (m + x % m) % m;
+}
+
+// linear_congruence
+// forall i,A_i x = B_i mod M_i <=> x = b mod m
+// とかけるときに(b,m)の組を返す. ただし(0 <= b < m)をみたす. このように書けない時は(-1,-1)を返す.
+// 計算量: O(nlogmax|M_i|),nは式の数
+template <typename T>
+pair<T, T> linear_congruence(const vector<T> &A, const vector<T> &B, const vector<T> &M) {
+    T x = 0, m = 1;
+    for (int i = 0; i < (int)A.size(); i++) {
+        T a = A[i] * m, b = B[i] - A[i] * x, d = gcd(M[i], a);
+        if (b % d != 0) return make_pair(-1, -1);
+        T t = b / d * inv_mod(a / d, M[i] / d) % (M[i] / d);
+        x += m * t;
+        m *= M[i] / d;
+    }
+    return make_pair((m + x % m) % m, m);
+}
+
+// garner
+// forall i, x = R_i mod M_i <=> x = b mod m
+// とかけるときに(b,m)の組を返す. ただし(0 <= b < m)をみたす. このように書けない時は(-1,-1)を返す.
+// 計算量: O(nlogmax|M_i|),nは式の数
+template <typename T>
+pair<T, T> garner(const vector<T> &R, const vector<T> &M) {
+    vector<T> A(R.size(), 1);
+    return linear_congruence(A, R, M);
 }
 
 // aのk乗根を求める
@@ -25,32 +69,5 @@ long long root_int(long long a, int k) {
         x--;
     while (pow(x + 1, k) <= a)
         x++;
-    return x;
-}
-
-// これいる?
-long long modpow(long long N, long long K, long long mod = MOD) {
-    long long ret = 1;
-    while (K > 0) {
-        if (K & 1) {
-            ret *= N;
-            ret %= mod;
-        }
-        K >>= 1;
-        N *= N;
-        N %= mod;
-    }
-    return ret;
-}
-
-// これいる?
-template <typename T>
-T modinv(T a, T MOD = MOD) {
-    auto [x, y] = ext_gcd(a, MOD);
-
-    T g = a * x + b * y;
-    if (g != 1) return -1;
-    x %= MOD;
-    if (x < 0) x += MOD;
     return x;
 }
