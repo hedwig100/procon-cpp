@@ -189,7 +189,7 @@ int _rank(const Matrix<T> &lu) {
 // 行列のランクを求める.
 // 計算量: O(n^3)
 template <typename T>
-T rank(Matrix<T> A) {
+int rank(Matrix<T> A) {
     auto [_, lu] = lu_decomposition(A);
     return _rank(lu);
 }
