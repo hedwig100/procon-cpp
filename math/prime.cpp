@@ -36,15 +36,17 @@ vector<T> divisor(T n) {
 // 制約: n >= 1
 // 計算量: O(√n)
 template <typename T>
-map<T, int> prime_factor(T n) {
-    map<T, int> ans;
-    for (int i = 2; i * i <= n; i++) {
+vector<pair<T, int>> prime_factor(T n) {
+    vector<pair<T, int>> ans;
+    for (T i = 2; i * i <= n; i++) {
+        int cnt = 0;
         while (n % i == 0) {
-            ans[i]++;
+            cnt++;
             n /= i;
         }
+        if (cnt > 0) ans.emplace_back(i, cnt);
     }
-    if (n != 1) ans[n] = 1;
+    if (n != 1) ans.emplace_back(n, 1);
     return ans;
 }
 
