@@ -79,6 +79,20 @@ bool chmin(T &x, const T &y) {
     return (x > y) ? (x = y, true) : false;
 }
 
+template <typename T>
+vector<int> id_sort(const vector<T> &A) {
+    vector<pair<T, int>> B(A.size());
+    for (int i = 0; i < (int)A.size(); i++) {
+        B[i] = make_pair(A[i], i);
+    }
+    sort(B.begin(), B.end());
+    vector<int> ans(n);
+    for (int i = 0; i < (int)A.size(); i++) {
+        ans[i] = B[i].second;
+    }
+    return ans;
+}
+
 #pragma endregion
 
 int main() {
