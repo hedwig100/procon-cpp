@@ -67,3 +67,18 @@ ModInt<MOD> nck_nbig(long long n, int k) {
         ans *= mint(i).inverse();
     return ans;
 }
+
+// modpow
+// x^y mod mを計算する
+// 計算量: O(logy)
+long long modpow(long long x, long long y, long long m) {
+    long long ans = 1, tmp = x;
+    while (y > 0) {
+        if (y & 1) {
+            ans = (ans * tmp) % m;
+        }
+        y >>= 1;
+        tmp = (tmp * tmp) % m;
+    }
+    return ans;
+}
