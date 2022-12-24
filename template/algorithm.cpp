@@ -86,7 +86,7 @@ vector<int> id_sort(const vector<T> &A) {
         B[i] = make_pair(A[i], i);
     }
     sort(B.begin(), B.end());
-    vector<int> ans(n);
+    vector<int> ans(A.size());
     for (int i = 0; i < (int)A.size(); i++) {
         ans[i] = B[i].second;
     }
