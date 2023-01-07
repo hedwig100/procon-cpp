@@ -131,8 +131,8 @@ main: main.o
 clean:
 	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out string/*.out \
 		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp \
-		  main.cpp score_calc.cpp main.o judge.cpp judge.o && \ 
-	rm -rf testa/ testb/ testc/ testd/ teste/ testf/ testg/ testh/
+		  main.cpp score_calc.cpp main.o judge.cpp judge.o 
+	rm -rf testa testb testc testd teste testf testg testh
 
 .SECONDARY: make_test.o solver.o judge.o
 
