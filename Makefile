@@ -38,6 +38,38 @@ g: g.o
 h: h.o
 	./h.o
 
+atest: a.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_a -d "testa/" && \
+	oj t -c "./a.o" -d "testa/"
+
+btest: b.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_b -d "testb/" && \
+	oj t -c "./b.o" -d "testb/"
+
+ctest: c.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_c -d "testc/" && \
+	oj t -c "./c.o" -d "testc/"
+
+dtest: d.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_d -d "testd/"&& \
+	oj t -c "./d.o" -d "testd/"
+
+etest: e.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_e -d "teste/"&& \
+	oj t -c "./e.o" -d "teste/"
+
+ftest: f.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_f -d "testf/" && \
+	oj t -c "./f.o" -d "testf/"
+
+gtest: g.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_g -d "testg/" && \
+	oj t -c "./g.o" -d "testg/"
+
+htest: h.o 
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_h -d "testh/" && \
+	oj t -c "./h.o" -d "testh/"
+
 aca: a.exe
 	./a.exe
 
