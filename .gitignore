@@ -46,6 +46,7 @@ output.txt
 ans.txt
 main.cpp
 score_calc.cpp
+/.vscode/procon.code-snippets
 /atcoder
 /venv
 /tools

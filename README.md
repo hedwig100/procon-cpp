@@ -13,6 +13,18 @@ pip install -r requirements.txt
 python3 snippets_generator.py
 ```
 
+online-judge-toolでコンテスト中にテストケースを手に入れるためにログインしておく. 
+
+```
+oj login https://atcoder.jp/
+```
+
+コンテストの準備は次のように行う. もし次のコンテストが `abc001` ならば, 
+
+```
+make setup-abc001
+```
+
 ## Verify 
 
 仮想環境の中で
