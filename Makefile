@@ -14,6 +14,16 @@ test%: %.o make_test.o judge.o
 	./judge.o < input.txt
 	if [ $$? -eq 0 ]; then echo "OK"; else echo "Failed"; exit 1; fi
 
+fetch:
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_a -d "testa/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_b -d "testb/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_c -d "testc/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_d -d "testd/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_e -d "teste/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_f -d "testf/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_g -d "testg/" && \
+	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_h -d "testh/"
+
 a: a.o
 	./a.o
 
@@ -39,35 +49,27 @@ h: h.o
 	./h.o
 
 atest: a.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_a -d "testa/" && \
 	oj t -c "./a.o" -d "testa/"
 
 btest: b.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_b -d "testb/" && \
 	oj t -c "./b.o" -d "testb/"
 
 ctest: c.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_c -d "testc/" && \
 	oj t -c "./c.o" -d "testc/"
 
 dtest: d.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_d -d "testd/"&& \
 	oj t -c "./d.o" -d "testd/"
 
 etest: e.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_e -d "teste/"&& \
 	oj t -c "./e.o" -d "teste/"
 
 ftest: f.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_f -d "testf/" && \
 	oj t -c "./f.o" -d "testf/"
 
 gtest: g.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_g -d "testg/" && \
 	oj t -c "./g.o" -d "testg/"
 
 htest: h.o 
-	oj d https://atcoder.jp/contests/$(ATCODER_CONTEST)/tasks/$(ATCODER_CONTEST)_h -d "testh/" && \
 	oj t -c "./h.o" -d "testh/"
 
 aca: a.exe
@@ -94,7 +96,8 @@ acg: g.exe
 ach: h.exe
 	./h.exe
 
-setup:
+setup-%:
+	export ATCODER_CONTEST=${@:setup-%=%}
 	cp template/test.cpp make_test.cpp
 	cp template/algorithm.cpp solver.cpp
 	cp template/algorithm.cpp judge.cpp
@@ -128,7 +131,8 @@ main: main.o
 clean:
 	rm -f *.o *.exe data_structure/*.out graph/*.out math/*.out other_algorithm/*.out string/*.out \
 		  a.cpp b.cpp c.cpp d.cpp e.cpp f.cpp g.cpp h.cpp input.txt ans.txt output.txt make_test.cpp solver.cpp \
-		  main.cpp score_calc.cpp main.o judge.cpp judge.o
+		  main.cpp score_calc.cpp main.o judge.cpp judge.o && \ 
+	rm -rf testa/ testb/ testc/ testd/ teste/ testf/ testg/ testh/
 
 .SECONDARY: make_test.o solver.o judge.o
 
