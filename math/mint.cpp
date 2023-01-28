@@ -27,7 +27,11 @@ struct ModInt {
     constexpr ModInt operator/(const ModInt a) const noexcept { return ModInt(*this) /= a.x; }
 
     friend constexpr std::ostream &operator<<(std::ostream &os, const ModInt<MOD> a) noexcept { return os << a.x; }
-    friend constexpr std::istream &operator>>(std::istream &is, ModInt<MOD> &a) noexcept { return is >> a.x; }
+    friend constexpr std::istream &operator>>(std::istream &is, ModInt<MOD> &a) noexcept {
+        is >> a.x;
+        a.x = (a.x % MOD + MOD) % MOD;
+        return is;
+    }
 
     ModInt inverse() const noexcept { // x ^ (-1)
         long long a = x, b = MOD, p = 1, q = 0;
