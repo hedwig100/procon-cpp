@@ -22,7 +22,7 @@ oj login https://atcoder.jp/
 コンテストの準備は次のように行う. もし次のコンテストが `abc001` ならば, 
 
 ```
-make setup-abc001
+source setup.sh abc001
 ```
 
 ## Verify 

@@ -96,8 +96,7 @@ acg: g.exe
 ach: h.exe
 	./h.exe
 
-setup-%:
-	export ATCODER_CONTEST=${@:setup-%=%}
+setup:
 	cp template/test.cpp make_test.cpp
 	cp template/algorithm.cpp solver.cpp
 	cp template/algorithm.cpp judge.cpp
