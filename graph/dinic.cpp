@@ -17,7 +17,16 @@ struct Dinic {
     vector<vector<edge>> G;
     vector<int> level, iter;
 
-    Dinic(int n) : n(n) {
+    Dinic(int n = 0) : n(n) {
+        G.resize(n);
+        level.resize(n);
+        iter.resize(n);
+    }
+
+    // resize
+    // グラフの頂点数をnにする. グラフ構築後に呼んでも多分壊れないが, グラフの構築前に呼ぶべき
+    // 制約: n >= 0
+    void resize(int n) {
         G.resize(n);
         level.resize(n);
         iter.resize(n);
