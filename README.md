@@ -8,8 +8,8 @@ procon-cpp is a library for programming contest.
 ## Setup 
 
 ```
-git clone https://github.com/hedwig100/procon_lib 
-cd procon_lib
+git clone https://github.com/hedwig100/procon-cpp
+cd procon-cpp
 python3 -m venv .venv
 source venv/bin/activate
 pip install -r requirements.txt
