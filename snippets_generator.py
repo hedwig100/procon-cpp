@@ -89,7 +89,7 @@ IGNORE_DIR = [
     "testf",
     "testg",
     "testh",
-    "venv",
+    ".venv",
     "tools",
     "result"
 ]

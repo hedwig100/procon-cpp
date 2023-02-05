@@ -7,7 +7,7 @@ procon-cpp is a library for programming contest.
 ```
 git clone https://github.com/hedwig100/procon_lib 
 cd procon_lib
-python3 -m venv venv
+python3 -m venv .venv
 source venv/bin/activate
 pip install -r requirements.txt
 python3 snippets_generator.py
