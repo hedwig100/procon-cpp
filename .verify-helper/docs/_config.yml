@@ -1,3 +1,3 @@
 exclude: ["template","Makefile","marathon_runner.py","README.md","requirements.txt","setup.sh","snippets_generator.py"]
 title: Hedwig's Library
-theme: jekyll-theme-serial-programmer
+theme: jekyll-theme-hacker
