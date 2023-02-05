@@ -1,5 +1,8 @@
 # procon-cpp
 
+[![Actions Status](https://github.com/hedwig100/procon-cpp/workflows/verify/badge.svg)](https://github.com/hedwig100/procon-cpp/actions)
+[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://hedwig100.github.io/procon-cpp/)
+
 procon-cpp is a library for programming contest.
 
 ## Setup 
