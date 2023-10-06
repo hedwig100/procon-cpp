@@ -44,7 +44,7 @@ data:
   isVerificationFile: true
   path: test/ext_gcd.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-30 16:11:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/ext_gcd.test.cpp

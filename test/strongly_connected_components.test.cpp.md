@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/strongly_connected_components.cpp
     title: graph/strongly_connected_components.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/scc
@@ -76,8 +76,8 @@ data:
   isVerificationFile: true
   path: test/strongly_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-08-27 12:40:11+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/strongly_connected_components.test.cpp
 layout: document

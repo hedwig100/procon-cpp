@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structures/unionfind.cpp
     title: data_structures/unionfind.cpp
   _extendedRequiredBy: []
@@ -77,7 +77,7 @@ data:
   isVerificationFile: false
   path: graph/kruscal.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-29 14:36:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/kruscal.test.cpp

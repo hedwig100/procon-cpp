@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: other_algorithm/compress.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-05 22:13:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/inversion_number.test.cpp

@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: dynamic_programming/longest_common_sequence.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-28 12:10:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/longest_common_sequence.test.cpp

@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: test/binary_indexed_tree.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-05 23:20:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/binary_indexed_tree.test.cpp

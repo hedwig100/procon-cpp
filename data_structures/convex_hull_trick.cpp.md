@@ -145,7 +145,7 @@ data:
   isVerificationFile: false
   path: data_structures/convex_hull_trick.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2023-02-12 13:47:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/convex_hull_trick_monotone.test.cpp

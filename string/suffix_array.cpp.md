@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: string/suffix_array.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-27 12:40:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/suffix_array.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/point.cpp
     title: math/point.cpp
   - icon: ':heavy_check_mark:'
@@ -138,7 +138,7 @@ data:
   isVerificationFile: true
   path: test/polygon_area.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-19 14:09:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/polygon_area.test.cpp

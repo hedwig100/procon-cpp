@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: graph/prim.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-29 15:12:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/prim.test.cpp

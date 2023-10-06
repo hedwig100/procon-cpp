@@ -142,13 +142,13 @@ data:
   isVerificationFile: false
   path: data_structures/lazy_segment_tree.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-04 19:05:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/rsq_ruq.test.cpp
-  - test/rmq_raq.test.cpp
   - test/rmq_ruq.test.cpp
+  - test/rmq_raq.test.cpp
   - test/rsq_raq.test.cpp
+  - test/rsq_ruq.test.cpp
 documentation_of: data_structures/lazy_segment_tree.cpp
 layout: document
 redirect_from:

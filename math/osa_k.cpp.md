@@ -61,7 +61,7 @@ data:
   isVerificationFile: false
   path: math/osa_k.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-30 16:11:35+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/osa_k.cpp

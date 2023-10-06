@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structures/sliding_window_aggregation.cpp
     title: data_structures/sliding_window_aggregation.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/489
@@ -89,8 +89,8 @@ data:
   isVerificationFile: true
   path: test/swag.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-09-23 10:29:50+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/swag.test.cpp
 layout: document

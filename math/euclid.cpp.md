@@ -55,12 +55,12 @@ data:
   path: math/euclid.cpp
   requiredBy:
   - math/number_theory.cpp
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-30 16:11:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/garner.test.cpp
   - test/gcd.test.cpp
   - test/ext_gcd.test.cpp
+  - test/garner.test.cpp
 documentation_of: math/euclid.cpp
 layout: document
 redirect_from:

@@ -50,7 +50,7 @@ data:
   isVerificationFile: false
   path: dynamic_programming/edit_distance.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-10-23 13:46:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/edit_distance.test.cpp

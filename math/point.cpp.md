@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/line.cpp
     title: math/line.cpp
   - icon: ':heavy_check_mark:'
@@ -33,12 +33,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/ss_intersection1.test.cpp
     title: test/ss_intersection1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/ss_intersection2.test.cpp
     title: test/ss_intersection2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/point.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -197,17 +197,17 @@ data:
   requiredBy:
   - math/line.cpp
   - math/polygon.cpp
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-09-19 14:09:28+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/convex_hull.test.cpp
   - test/polygon_diameter.test.cpp
-  - test/ss_distance.test.cpp
   - test/ss_intersection2.test.cpp
-  - test/reflection.test.cpp
   - test/ss_intersection1.test.cpp
-  - test/isp.test.cpp
+  - test/reflection.test.cpp
+  - test/convex_hull.test.cpp
   - test/proj.test.cpp
+  - test/ss_distance.test.cpp
+  - test/isp.test.cpp
   - test/polygon_area.test.cpp
 documentation_of: math/point.cpp
 layout: document

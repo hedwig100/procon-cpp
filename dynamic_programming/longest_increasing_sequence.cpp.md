@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: dynamic_programming/longest_increasing_sequence.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-28 17:14:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/longest_increasing_sequence.test.cpp

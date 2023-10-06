@@ -76,11 +76,11 @@ data:
   isVerificationFile: false
   path: data_structures/binary_indexed_tree.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-05 23:20:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/inversion_number.test.cpp
   - test/binary_indexed_tree.test.cpp
+  - test/inversion_number.test.cpp
 documentation_of: data_structures/binary_indexed_tree.cpp
 layout: document
 redirect_from:

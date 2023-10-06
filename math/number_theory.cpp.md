@@ -97,7 +97,7 @@ data:
   isVerificationFile: false
   path: math/number_theory.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-22 13:17:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/garner.test.cpp

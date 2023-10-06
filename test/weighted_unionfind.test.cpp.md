@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structures/weighted_unionfind.cpp
     title: data_structures/weighted_unionfind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1330
@@ -81,8 +81,8 @@ data:
   isVerificationFile: true
   path: test/weighted_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-08-29 11:38:54+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/weighted_unionfind.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/stirling_number2.cpp
     title: math/stirling_number2.cpp
   _extendedRequiredBy: []
@@ -69,7 +69,7 @@ data:
   isVerificationFile: false
   path: math/bell_number.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2023-02-05 16:24:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/bell_number.test.cpp

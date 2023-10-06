@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/point.cpp
     title: math/point.cpp
   _extendedRequiredBy: []
@@ -161,11 +161,11 @@ data:
   isVerificationFile: false
   path: math/polygon.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-19 14:09:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/convex_hull.test.cpp
   - test/polygon_diameter.test.cpp
+  - test/convex_hull.test.cpp
   - test/polygon_area.test.cpp
 documentation_of: math/polygon.cpp
 layout: document

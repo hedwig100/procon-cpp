@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/strongly_connected_components.test.cpp
     title: test/strongly_connected_components.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/strongly_connected_components.cpp\"\n#include <bits/stdc++.h>\n\
@@ -92,8 +92,8 @@ data:
   isVerificationFile: false
   path: graph/strongly_connected_components.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-08-27 12:40:11+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/strongly_connected_components.test.cpp
 documentation_of: graph/strongly_connected_components.cpp

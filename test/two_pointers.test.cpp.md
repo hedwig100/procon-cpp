@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: other_algorithm/two_pointers.cpp
     title: other_algorithm/two_pointers.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_C&lang=jp
@@ -110,8 +110,8 @@ data:
   isVerificationFile: true
   path: test/two_pointers.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-08-31 15:48:02+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/two_pointers.test.cpp
 layout: document

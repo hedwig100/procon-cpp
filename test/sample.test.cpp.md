@@ -21,7 +21,7 @@ data:
   isVerificationFile: true
   path: test/sample.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-06-26 19:41:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/sample.test.cpp

@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/bell_number.cpp
     title: math/bell_number.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mint.cpp
     title: math/mint.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/stirling_number2.cpp
     title: math/stirling_number2.cpp
   _extendedRequiredBy: []
@@ -95,7 +95,7 @@ data:
   isVerificationFile: true
   path: test/bell_number.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2023-02-05 16:24:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/bell_number.test.cpp

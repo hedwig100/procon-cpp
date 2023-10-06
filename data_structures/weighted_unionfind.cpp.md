@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/weighted_unionfind.test.cpp
     title: test/weighted_unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structures/weighted_unionfind.cpp\"\n#include <bits/stdc++.h>\n\
@@ -92,8 +92,8 @@ data:
   isVerificationFile: false
   path: data_structures/weighted_unionfind.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-08-29 11:38:54+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/weighted_unionfind.test.cpp
 documentation_of: data_structures/weighted_unionfind.cpp

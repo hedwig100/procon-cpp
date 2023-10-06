@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: math/accum1d.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2023-02-05 13:53:13+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/accum1d.cpp

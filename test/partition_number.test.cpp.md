@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mint.cpp
     title: math/mint.cpp
   - icon: ':heavy_check_mark:'
@@ -76,7 +76,7 @@ data:
   isVerificationFile: true
   path: test/partition_number.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2023-01-28 20:23:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/partition_number.test.cpp

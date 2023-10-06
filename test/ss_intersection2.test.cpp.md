@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/line.cpp
     title: math/line.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/point.cpp
     title: math/point.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: 1e-9
@@ -171,8 +171,8 @@ data:
   isVerificationFile: true
   path: test/ss_intersection2.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-09-19 14:09:28+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/ss_intersection2.test.cpp
 layout: document

@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: data_structures/binary_indexed_tree2d.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-05 23:20:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: data_structures/binary_indexed_tree2d.cpp

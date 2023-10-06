@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structures/unionfind.cpp
     title: data_structures/unionfind.cpp
   - icon: ':heavy_check_mark:'
@@ -78,7 +78,7 @@ data:
   isVerificationFile: true
   path: test/kruscal.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-10-23 13:46:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/kruscal.test.cpp

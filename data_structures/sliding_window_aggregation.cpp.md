@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/swag.test.cpp
     title: test/swag.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structures/sliding_window_aggregation.cpp\"\n#include\
@@ -96,8 +96,8 @@ data:
   isVerificationFile: false
   path: data_structures/sliding_window_aggregation.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-09-23 10:29:50+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/swag.test.cpp
 documentation_of: data_structures/sliding_window_aggregation.cpp

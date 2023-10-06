@@ -47,7 +47,7 @@ data:
   path: graph/topological_sort.cpp
   requiredBy:
   - test/topological_sort.unverified.cpp
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-08-29 11:39:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/topological_sort.cpp

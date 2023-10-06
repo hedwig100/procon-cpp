@@ -30,12 +30,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/partition_number.test.cpp
     title: test/partition_number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/stirling_number2.test.cpp
     title: test/stirling_number2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/mint.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -95,19 +95,19 @@ data:
   isVerificationFile: false
   path: math/mint.cpp
   requiredBy:
-  - math/matrix.cpp
   - math/fast_fourier_transform.cpp
-  - math/mod_comb.cpp
   - math/number_theoretic_transform.cpp
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  - math/mod_comb.cpp
+  - math/matrix.cpp
+  timestamp: '2023-01-28 20:23:48+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/stirling_number2.test.cpp
-  - test/gcd_convolutiion.test.cpp
-  - test/ntt_recursive.test.cpp
   - test/mod_comb.test.cpp
-  - test/partition_number.test.cpp
+  - test/gcd_convolutiion.test.cpp
+  - test/stirling_number2.test.cpp
   - test/bell_number.test.cpp
+  - test/ntt_recursive.test.cpp
+  - test/partition_number.test.cpp
 documentation_of: math/mint.cpp
 layout: document
 redirect_from:

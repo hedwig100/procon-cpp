@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/line.cpp
     title: math/line.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/point.cpp
     title: math/point.cpp
   _extendedRequiredBy: []
@@ -171,7 +171,7 @@ data:
   isVerificationFile: true
   path: test/ss_intersection1.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-19 14:09:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/ss_intersection1.test.cpp

@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/bell_number.test.cpp
     title: test/bell_number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/stirling_number2.test.cpp
     title: test/stirling_number2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/stirling_number2.cpp\"\n#include <bits/stdc++.h>\n\
@@ -54,8 +54,8 @@ data:
   path: math/stirling_number2.cpp
   requiredBy:
   - math/bell_number.cpp
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-08-28 17:14:16+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/stirling_number2.test.cpp
   - test/bell_number.test.cpp

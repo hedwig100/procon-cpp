@@ -18,16 +18,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structures/segment_tree.cpp
       title: data_structures/segment_tree.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structures/sliding_window_aggregation.cpp
       title: data_structures/sliding_window_aggregation.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structures/unionfind.cpp
       title: data_structures/unionfind.cpp
     - icon: ':warning:'
       path: data_structures/wavelet_matrix.cpp
       title: data_structures/wavelet_matrix.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structures/weighted_unionfind.cpp
       title: data_structures/weighted_unionfind.cpp
   - name: dynamic_programming
@@ -82,7 +82,7 @@ data:
     - icon: ':warning:'
       path: graph/rerooting.cpp
       title: graph/rerooting.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/strongly_connected_components.cpp
       title: graph/strongly_connected_components.cpp
     - icon: ':warning:'
@@ -105,13 +105,13 @@ data:
     - icon: ':warning:'
       path: math/kitamasa.cpp
       title: math/kitamasa.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/line.cpp
       title: math/line.cpp
     - icon: ':warning:'
       path: math/matrix.cpp
       title: math/matrix.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/mint.cpp
       title: math/mint.cpp
     - icon: ':heavy_check_mark:'
@@ -129,7 +129,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/partition_number.cpp
       title: math/partition_number.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/point.cpp
       title: math/point.cpp
     - icon: ':heavy_check_mark:'
@@ -138,7 +138,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/prime.cpp
       title: math/prime.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/stirling_number2.cpp
       title: math/stirling_number2.cpp
     - icon: ':heavy_check_mark:'
@@ -161,7 +161,7 @@ data:
     - icon: ':warning:'
       path: other_algorithm/perm_search.cpp
       title: other_algorithm/perm_search.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: other_algorithm/two_pointers.cpp
       title: other_algorithm/two_pointers.cpp
   - name: string
@@ -309,25 +309,25 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/ss_intersection1.test.cpp
       title: test/ss_intersection1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/ss_intersection2.test.cpp
       title: test/ss_intersection2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/stirling_number2.test.cpp
       title: test/stirling_number2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/strongly_connected_components.test.cpp
       title: test/strongly_connected_components.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/swag.test.cpp
       title: test/swag.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/two_pointers.test.cpp
       title: test/two_pointers.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/unionfind.test.cpp
       title: test/unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/weighted_unionfind.test.cpp
       title: test/weighted_unionfind.test.cpp
 layout: toppage

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/point.cpp
     title: math/point.cpp
   _extendedRequiredBy: []
@@ -21,12 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/ss_intersection1.test.cpp
     title: test/ss_intersection1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/ss_intersection2.test.cpp
     title: test/ss_intersection2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/line.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -220,15 +220,15 @@ data:
   isVerificationFile: false
   path: math/line.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-09-19 14:09:28+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/convex_hull.test.cpp
-  - test/ss_distance.test.cpp
   - test/ss_intersection2.test.cpp
-  - test/reflection.test.cpp
   - test/ss_intersection1.test.cpp
+  - test/reflection.test.cpp
+  - test/convex_hull.test.cpp
   - test/proj.test.cpp
+  - test/ss_distance.test.cpp
 documentation_of: math/line.cpp
 layout: document
 redirect_from:

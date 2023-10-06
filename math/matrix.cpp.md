@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mint.cpp
     title: math/mint.cpp
   _extendedRequiredBy: []
@@ -198,7 +198,7 @@ data:
   isVerificationFile: false
   path: math/matrix.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2023-01-28 20:23:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/matrix.cpp

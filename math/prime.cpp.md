@@ -96,12 +96,12 @@ data:
   isVerificationFile: false
   path: math/prime.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-12-03 23:34:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/gcd.test.cpp
   - test/factorization2.test.cpp
   - test/factorization.test.cpp
+  - test/gcd.test.cpp
 documentation_of: math/prime.cpp
 layout: document
 redirect_from:

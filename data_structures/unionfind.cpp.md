@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/kruscal.test.cpp
     title: test/kruscal.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/unionfind.test.cpp
     title: test/unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structures/unionfind.cpp\"\n#include <bits/stdc++.h>\n\
@@ -71,8 +71,8 @@ data:
   path: data_structures/unionfind.cpp
   requiredBy:
   - graph/kruscal.cpp
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-08-28 18:43:40+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/unionfind.test.cpp
   - test/kruscal.test.cpp

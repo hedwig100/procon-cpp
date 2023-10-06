@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/two_pointers.test.cpp
     title: test/two_pointers.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://atcoder.jp/contests/abc032/submissions/34471465
@@ -163,8 +163,8 @@ data:
   isVerificationFile: false
   path: other_algorithm/two_pointers.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-08-31 15:48:02+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/two_pointers.test.cpp
 documentation_of: other_algorithm/two_pointers.cpp

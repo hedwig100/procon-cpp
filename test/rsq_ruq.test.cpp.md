@@ -106,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/rsq_ruq.test.cpp
   requiredBy: []
-  timestamp: '2023-05-20 22:59:16+09:00'
+  timestamp: '2022-09-04 20:28:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/rsq_ruq.test.cpp
