@@ -4,8 +4,7 @@ using namespace std;
 
 // Dinic
 // 最大流を求める.
-template <typename T, const T INF>
-struct Dinic {
+template <typename T, const T INF> struct Dinic {
     struct edge {
         int to, rev;
         T cap;
@@ -24,8 +23,8 @@ struct Dinic {
     }
 
     // resize
-    // グラフの頂点数をnにする. グラフ構築後に呼んでも多分壊れないが, グラフの構築前に呼ぶべき
-    // 制約: n >= 0
+    // グラフの頂点数をnにする. グラフ構築後に呼んでも多分壊れないが,
+    // グラフの構築前に呼ぶべき 制約: n >= 0
     void resize(int n) {
         G.resize(n);
         level.resize(n);

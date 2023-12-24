@@ -5,8 +5,7 @@ using namespace std;
 // WeightedUnionFind
 // 通常のUnionFindに加えて, 同じグループにいるノードの親に対する重みも
 // 管理するデータ構造.
-template <typename Abel, Abel unit>
-struct WeightedUnionFind {
+template <typename Abel, Abel unit> struct WeightedUnionFind {
     int n;
     vector<int> parents;
     vector<Abel> diff_weight;
@@ -41,15 +40,12 @@ struct WeightedUnionFind {
     // xとyが同じグループにいる時, xに対するyの重みを返す.
     // xとyが同じグループにいない時, 返す値には意味がない.
     // 制約: 0 <= x,y < n, xとyは同じグループ
-    Abel diff(int x, int y) {
-        return weight(y) - weight(x);
-    }
+    Abel diff(int x, int y) { return weight(y) - weight(x); }
 
     // unite
     // weight(y) = weight(x) + wとなるようにxとyを併合する.
-    // もしすでにxとyが同じグループでweight(y) != weight(x) + wであればfalseを返す.
-    // そうでない場合はtrueを返す.
-    // 制約: 0 <= x,y < n
+    // もしすでにxとyが同じグループでweight(y) != weight(x) +
+    // wであればfalseを返す. そうでない場合はtrueを返す. 制約: 0 <= x,y < n
     bool unite(int x, int y, Abel w) {
         w += weight(x);
         w -= weight(y);
@@ -77,14 +73,10 @@ struct WeightedUnionFind {
     // same
     // xとyが同じかどうか判定する
     // 制約: 0 <= x,y < n
-    bool same(int x, int y) {
-        return find(x) == find(y);
-    }
+    bool same(int x, int y) { return find(x) == find(y); }
 
     // size
     // xと同じグループのサイズを返す.
     // 制約: 0 <= x < n
-    int size(int x) {
-        return -parents[find(x)];
-    }
+    int size(int x) { return -parents[find(x)]; }
 };

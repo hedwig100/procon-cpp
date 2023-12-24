@@ -4,8 +4,7 @@ using namespace std;
 
 // beruman_ford
 // 負辺を含むグラフを受け取り, sからの最短経路を計算する.
-template <typename T, const T INF>
-struct BerumanFord {
+template <typename T, const T INF> struct BerumanFord {
     struct edge {
         int a, b;
         T c;
@@ -29,9 +28,7 @@ struct BerumanFord {
 
     // add_edge
     // aからbへ辺重みcの辺をはる
-    void add_edge(int a, int b, T c) {
-        edges.push_back(edge{a, b, c});
-    }
+    void add_edge(int a, int b, T c) { edges.push_back(edge{a, b, c}); }
 
     // solve
     // sからの最短経路を求める. もしsから到達可能な負閉路が存在すれば
@@ -61,9 +58,7 @@ struct BerumanFord {
     // find_negloop_from_s
     // sから到達可能な負閉路が存在すればtrue, そうでなければfalseを返すkaesu.
     // 制約: solve()を呼んでいること
-    bool find_negloop_from_s() {
-        return find_negative_from_s;
-    }
+    bool find_negloop_from_s() { return find_negative_from_s; }
 
     // negloop_from_s
     // sからvまでの経路に負閉路が存在するならa[v]=1,そうでないときA[v]=0であるような

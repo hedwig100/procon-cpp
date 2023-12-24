@@ -14,8 +14,7 @@ struct DP {
 };
 DP unit = DP(); // unit
 
-template <class T>
-struct Rerooting {
+template <class T> struct Rerooting {
     int N;
     vector<int> parents;
     vector<vector<int>> G;
@@ -58,7 +57,5 @@ struct Rerooting {
             bfs(G[v][i], d.addroot(), v);
         }
     }
-    T operator[](int k) {
-        return ans[k];
-    }
+    T operator[](int k) { return ans[k]; }
 };

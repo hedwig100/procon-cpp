@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A"
+#define PROBLEM                                                                \
+    "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A"
 #define ERROR 1e-9
 #include "../math/line.cpp"
 #include "../math/polygon.cpp"
@@ -24,7 +25,8 @@ int main() {
     P start = INFTY<int>;
     int ind = -1;
     for (int i = 0; i < k; i++) {
-        if (convex[i].y < start.y || (convex[i].y == start.y && convex[i].x < start.x)) {
+        if (convex[i].y < start.y ||
+            (convex[i].y == start.y && convex[i].x < start.x)) {
             start = convex[i];
             ind   = i;
         }

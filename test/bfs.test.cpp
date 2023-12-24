@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_C&lang=ja"
+#define PROBLEM                                                                \
+    "https://judge.u-aizu.ac.jp/onlinejudge/"                                  \
+    "description.jsp?id=ALDS1_11_C&lang=ja"
 #include "../graph/bfs.cpp"
 
 int main() {

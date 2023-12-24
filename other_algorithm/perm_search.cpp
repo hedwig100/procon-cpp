@@ -4,7 +4,8 @@ using namespace std;
 
 // PermSearch
 // 順列を全探索する.
-// 0~n-1までの数字からなる順列を探索する. fはある順列をvectorで受け取って処理をする関数
+// 0~n-1までの数字からなる順列を探索する.
+// fはある順列をvectorで受け取って処理をする関数
 struct PermSearch {
     int n;
     vector<int> A;

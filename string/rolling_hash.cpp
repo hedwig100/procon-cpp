@@ -38,7 +38,9 @@ struct RollingHash {
     }
     u64 get() { return hash[N]; }
     u64 get(int k) { return hash[k]; }
-    u64 get(int l, int r) { return CalcMod(hash[r] + POSITIVIZER - mul(hash[l], power[r - l])); }
+    u64 get(int l, int r) {
+        return CalcMod(hash[r] + POSITIVIZER - mul(hash[l], power[r - l]));
+    }
 };
 
 mt19937_64 mt;
@@ -57,10 +59,9 @@ struct RollingHash {
 
     RollingHash(string &s) {
         N = s.size();
-        power1.resize(N + 1); power2.resize(N + 1); hash1.resize(N + 1); hash2.resize(N + 1);
-        power1[0] = 1;        power2[0] = 1;        hash1[0] = 0;        hash2[0] = 0;
-        for (int i = 0;i < N; ++i) {
-            power1[i + 1] = power1[i] * B1 % M1;
+        power1.resize(N + 1); power2.resize(N + 1); hash1.resize(N + 1);
+hash2.resize(N + 1); power1[0] = 1;        power2[0] = 1;        hash1[0] = 0;
+hash2[0] = 0; for (int i = 0;i < N; ++i) { power1[i + 1] = power1[i] * B1 % M1;
             power2[i + 1] = power2[i] * B2 % M2;
             hash1[i + 1] = (hash1[i] * B1 + s[i]) % M1;
             hash2[i + 1] = (hash2[i] * B2 + s[i]) % M2;

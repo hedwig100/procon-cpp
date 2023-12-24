@@ -6,7 +6,7 @@ struct LowLink {
     int N;
     vector<vector<int>> G;
     vector<int> low, ord, articulation;
-    vector<pair<int,int>> bridge;
+    vector<pair<int, int>> bridge;
 
     LowLink(int N, vector<vector<int>> &G) : N(N), G(G) {
         low.assign(N, -1);
@@ -36,7 +36,5 @@ struct LowLink {
         if (isArticulation) articulation.push_back(v);
     }
 
-    void build() {
-        dfs(0, 0);
-    }
+    void build() { dfs(0, 0); }
 };

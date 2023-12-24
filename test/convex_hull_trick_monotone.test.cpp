@@ -25,13 +25,15 @@ int main() {
     cht.add_left(0, 0);
     dp[0] = 0;
     for (int i = 1; i <= n; i++) {
-        dp[i] = cht.query(i).first + (ll)i * (i - 1) / 2 * b - (i - 1) * a + D[i - 1];
+        dp[i] = cht.query(i).first + (ll)i * (i - 1) / 2 * b - (i - 1) * a +
+                D[i - 1];
         cht.add_left(-i * b, dp[i] + i * a + (ll)i * (i + 1) * b / 2);
     }
 
     ll ans = HINF;
     for (int i = 0; i <= n; i++) {
-        ans = min(ans, w + dp[i] - (ll)(n - i) * a + (ll)(n - i) * (n - i + 1) / 2 * b);
+        ans = min(ans, w + dp[i] - (ll)(n - i) * a +
+                           (ll)(n - i) * (n - i + 1) / 2 * b);
     }
     cout << ans << '\n';
     return 0;

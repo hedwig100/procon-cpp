@@ -4,8 +4,7 @@ using namespace std;
 
 // Prim
 // Prim法で最小全域木を求める.
-template <typename T, const T INF>
-struct Prim {
+template <typename T, const T INF> struct Prim {
     struct edge {
         int to;
         T cost;
@@ -13,18 +12,15 @@ struct Prim {
 
         edge(int to, T c, int id) : to(to), cost(c), id(id) {}
     };
-    function<bool(const edge &, const edge &)> compare = [](const edge &a, const edge &b) {
-        return a.cost > b.cost;
-    };
+    function<bool(const edge &, const edge &)> compare =
+        [](const edge &a, const edge &b) { return a.cost > b.cost; };
 
     int n;
     int m = 0;
     vector<int> used_id;
     vector<vector<edge>> G;
 
-    Prim(int n) : n(n) {
-        G.resize(n);
-    }
+    Prim(int n) : n(n) { G.resize(n); }
 
     // add_edge
     // aとbの間にコストcの無向辺をはる

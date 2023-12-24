@@ -8,8 +8,7 @@ using namespace std;
 // 1. A[0] + A[1] + ... + A[k] を求める.
 // 2. A[k] += x と更新.
 //
-template <typename T>
-struct BinaryIndexedTree {
+template <typename T> struct BinaryIndexedTree {
     int n, size;
     int power;
     vector<T> data;
@@ -57,14 +56,11 @@ struct BinaryIndexedTree {
     // Σ_{l <= i < r} A[i]を求める.
     // 制約: 0 <= l <= r <= N
     // 計算量: O(logN)
-    T sum(int l, int r) {
-        return sum(r - 1) - sum(l - 1);
-    }
+    T sum(int l, int r) { return sum(r - 1) - sum(l - 1); }
 
     // lower_bound
-    // Σ_{0 <= i <= k} >= x を満たす最小のインデックスkを返す. そのようなものが存在しなければnを返す.
-    // 制約: A[i] >= 0
-    // 計算量: O(logN)
+    // Σ_{0 <= i <= k} >= x を満たす最小のインデックスkを返す.
+    // そのようなものが存在しなければnを返す. 制約: A[i] >= 0 計算量: O(logN)
     int lower_bound(T x) {
         int k = 0;
         for (int r = size; r > 0; r >>= 1) {

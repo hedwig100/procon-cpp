@@ -2,8 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template <typename T>
-struct Compress {
+template <typename T> struct Compress {
   private:
     int n;
     vector<T> A;
@@ -18,15 +17,9 @@ struct Compress {
             val_to_id[A[i]] = i;
     }
 
-    int operator()(T val) {
-        return val_to_id[val];
-    }
+    int operator()(T val) { return val_to_id[val]; }
 
-    T operator[](int id) {
-        return A[id];
-    }
+    T operator[](int id) { return A[id]; }
 
-    int size() {
-        return n;
-    }
+    int size() { return n; }
 };

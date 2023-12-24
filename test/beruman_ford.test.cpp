@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B&lang=jp"
+#define PROBLEM                                                                \
+    "https://judge.u-aizu.ac.jp/onlinejudge/"                                  \
+    "description.jsp?id=GRL_1_B&lang=jp"
 #include "../graph/beruman_ford.cpp"
 #include "../template/const.hpp"
 

@@ -5,8 +5,7 @@ using namespace std;
 // PrimalDual2
 // berumanford法を用いて最小費用流を求める.
 // 最初のグラフには負閉路が含まれてはいけない.
-template <typename Cap, typename Cost, const Cost INF>
-struct PrimalDual2 {
+template <typename Cap, typename Cost, const Cost INF> struct PrimalDual2 {
     struct edge {
         int to;
         Cap cap;
@@ -65,8 +64,7 @@ struct PrimalDual2 {
         Cost ret_cost = 0;
         Cap ret_flow  = 0;
         while (ret_flow < f) {
-            if (!beruman(s, t))
-                break;
+            if (!beruman(s, t)) break;
             Cap d = f - ret_flow;
             for (int v = t; v != s; v = prevv[v]) {
                 d = min(d, G[prevv[v]][preve[v]].cap);

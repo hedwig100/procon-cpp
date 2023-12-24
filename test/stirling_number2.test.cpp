@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_I"
+#define PROBLEM                                                                \
+    "https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_I"
 #include "../math/mint.cpp"
 #include "../math/stirling_number2.cpp"
 

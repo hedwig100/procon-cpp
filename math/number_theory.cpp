@@ -7,8 +7,7 @@ using namespace std;
 // pow_mod
 // x^k mod mを計算する.
 // 計算量: O(logk)
-template <typename T>
-T pow_mod(T x, long long k, int m) {
+template <typename T> T pow_mod(T x, long long k, int m) {
     T ret = T(1);
     while (k > 0) {
         if (k & 1) {
@@ -26,8 +25,7 @@ T pow_mod(T x, long long k, int m) {
 // ax = 1 (mod m) なるx (0 <= x < m)が存在するならば
 // それを返し, 存在しなければ-1を返す.
 // 計算量: O(log|max(a,m)|)
-template <typename T>
-T inv_mod(T a, T m) {
+template <typename T> T inv_mod(T a, T m) {
     auto [x, y] = ext_gcd(a, m);
     T g         = a * x + m * y;
     if (g != 1) return -1;
@@ -36,10 +34,11 @@ T inv_mod(T a, T m) {
 
 // linear_congruence
 // forall i,A_i x = B_i mod M_i <=> x = b mod m
-// とかけるときに(b,m)の組を返す. ただし(0 <= b < m)をみたす. このように書けない時は(-1,-1)を返す.
-// 計算量: O(nlogmax|M_i|),nは式の数
+// とかけるときに(b,m)の組を返す. ただし(0 <= b < m)をみたす.
+// このように書けない時は(-1,-1)を返す. 計算量: O(nlogmax|M_i|),nは式の数
 template <typename T>
-pair<T, T> linear_congruence(const vector<T> &A, const vector<T> &B, const vector<T> &M) {
+pair<T, T> linear_congruence(const vector<T> &A, const vector<T> &B,
+                             const vector<T> &M) {
     T x = 0, m = 1;
     for (int i = 0; i < (int)A.size(); i++) {
         T a = A[i] * m, b = B[i] - A[i] * x, d = gcd(M[i], a);
@@ -53,8 +52,8 @@ pair<T, T> linear_congruence(const vector<T> &A, const vector<T> &B, const vecto
 
 // garner
 // forall i, x = R_i mod M_i <=> x = b mod m
-// とかけるときに(b,m)の組を返す. ただし(0 <= b < m)をみたす. このように書けない時は(-1,-1)を返す.
-// 計算量: O(nlogmax|M_i|),nは式の数
+// とかけるときに(b,m)の組を返す. ただし(0 <= b < m)をみたす.
+// このように書けない時は(-1,-1)を返す. 計算量: O(nlogmax|M_i|),nは式の数
 template <typename T>
 pair<T, T> garner(const vector<T> &R, const vector<T> &M) {
     vector<T> A(R.size(), 1);

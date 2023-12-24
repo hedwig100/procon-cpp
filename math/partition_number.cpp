@@ -5,8 +5,7 @@ using namespace std;
 // PartionNumber
 // n個の区別できないものをk個の区別できない箱に0個以上に分割する方法が何通りあるか求める.
 // これをP(n,k)とするとP(n,0) = 0 (n > 0)
-template <typename T>
-struct PartitionNumber {
+template <typename T> struct PartitionNumber {
     int n, k;
     vector<vector<T>> dp;
 
@@ -29,7 +28,5 @@ struct PartitionNumber {
 
     // P(i,j)を返す.
     // 制約: 0 <= i <= n,0 <= j <= k
-    T operator()(int i, int j) {
-        return dp[i][j];
-    }
+    T operator()(int i, int j) { return dp[i][j]; }
 };

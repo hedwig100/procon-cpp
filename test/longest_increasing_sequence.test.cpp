@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=jp"
+#define PROBLEM                                                                \
+    "https://judge.u-aizu.ac.jp/onlinejudge/"                                  \
+    "description.jsp?id=DPL_1_D&lang=jp"
 #include "../dynamic_programming/longest_increasing_sequence.cpp"
 #include "../template/const.hpp"
 

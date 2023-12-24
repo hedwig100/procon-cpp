@@ -5,8 +5,7 @@ using namespace std;
 // PrimalDual
 // ポテンシャルを用いて最小費用流を求める.
 // 最初のグラフには負閉路が含まれてはいけない.
-template <typename Cap, typename Cost, const Cost INF>
-struct PrimalDual {
+template <typename Cap, typename Cost, const Cost INF> struct PrimalDual {
     struct edge {
         int to;
         Cap cap;
@@ -73,7 +72,8 @@ struct PrimalDual {
             if (dist[v] < d) continue;
             for (int i = 0; i < (int)G[v].size(); i++) {
                 edge &e = G[v][i];
-                if (e.cap > 0 && dist[e.to] > dist[v] + e.cost + h[v] - h[e.to]) {
+                if (e.cap > 0 &&
+                    dist[e.to] > dist[v] + e.cost + h[v] - h[e.to]) {
                     dist[e.to]  = dist[v] + e.cost + h[v] - h[e.to];
                     prevv[e.to] = v;
                     preve[e.to] = i;

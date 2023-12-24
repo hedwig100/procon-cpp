@@ -69,7 +69,8 @@ class FastFourierTransform {
 
 class FastFourierTransform {
   private:
-    inline static void fft(vector<complex<double>> &F, bool inverse, int bit_len) {
+    inline static void fft(vector<complex<double>> &F, bool inverse,
+                           int bit_len) {
         int degree = F.size();
         for (int i = 0; i < degree; i++) {
             int j = 0;
@@ -78,7 +79,8 @@ class FastFourierTransform {
             if (i < j) swap(F[i], F[j]);
         }
         for (int b = 1; b < degree; b <<= 1) {
-            complex<double> x = 1, zeta = polar(1.0, PI / b * (inverse ? 1 : -1));
+            complex<double> x    = 1,
+                            zeta = polar(1.0, PI / b * (inverse ? 1 : -1));
             for (int j = 0; j < b; j++) {
                 for (int k = 0; k < degree; k += (b << 1)) {
                     complex<double> s = F[j + k], t = F[j + k + b] * x;

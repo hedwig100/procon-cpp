@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/all/NTL_1_A"
+#define PROBLEM                                                                \
+    "https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/all/NTL_1_A"
 #include "../math/prime.cpp"
 
 const int MAXN = 100000;

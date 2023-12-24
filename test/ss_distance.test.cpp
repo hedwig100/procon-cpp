@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D"
+#define PROBLEM                                                                \
+    "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D"
 #define ERROR 1e-9
 #include "../math/line.cpp"
 #include "../math/point.cpp"

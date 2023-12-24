@@ -4,11 +4,9 @@ using namespace std;
 
 #include "mint.cpp"
 
-template <typename T>
-using Matrix = vector<vector<T>>;
+template <typename T> using Matrix = vector<vector<T>>;
 
-template <typename T>
-Matrix<T> mul(const Matrix<T> &a, const Matrix<T> &b) {
+template <typename T> Matrix<T> mul(const Matrix<T> &a, const Matrix<T> &b) {
     assert(a[0].size() == b.size());
     Matrix<T> c(a.size(), vector<T>(b[0].size()));
     for (int i = 0; i < (int)a.size(); i++) {
@@ -21,8 +19,7 @@ Matrix<T> mul(const Matrix<T> &a, const Matrix<T> &b) {
     return c;
 }
 
-template <typename T>
-vector<T> mul(const Matrix<T> &a, const vector<T> &b) {
+template <typename T> vector<T> mul(const Matrix<T> &a, const vector<T> &b) {
     assert(a[0].size() == b.size());
     vector<T> ans(a.size(), 0);
     for (int i = 0; i < (int)a.size(); i++) {
@@ -33,33 +30,28 @@ vector<T> mul(const Matrix<T> &a, const vector<T> &b) {
     return ans;
 }
 
-template <typename T, typename U>
-Matrix<T> pow(Matrix<T> a, U n) {
+template <typename T, typename U> Matrix<T> pow(Matrix<T> a, U n) {
     assert(a.size() == a[0].size());
     int m = (int)a.size();
     Matrix<T> ans(m, vector<T>(m, 0));
     for (int i = 0; i < m; i++)
         ans[i][i] = 1;
     while (n > 0) {
-        if (n & 1) {
-            ans = mul(ans, a);
-        }
+        if (n & 1) { ans = mul(ans, a); }
         a = mul(a, a);
         n >>= 1;
     }
     return ans;
 }
 
-template <int MOD>
-int _find_pivot(const Matrix<ModInt<MOD>> &a, int i) {
+template <int MOD> int _find_pivot(const Matrix<ModInt<MOD>> &a, int i) {
     for (int j = i; j < (int)a[i].size(); j++) {
         if (a[j][i].x != 0) return j;
     }
     return -1;
 }
 
-template <typename T>
-int _find_pivot(const Matrix<T> &a, int i) {
+template <typename T> int _find_pivot(const Matrix<T> &a, int i) {
     int pivot = -1;
     T val     = T(0);
     for (int j = i; j < (int)a[i].size(); j++) {
@@ -72,9 +64,9 @@ int _find_pivot(const Matrix<T> &a, int i) {
 }
 
 // lu_decomposition
-// PA = LUなる分解をする. ただし, Pは置換行列, Lは対角成分が1の下三角行列, Uは上三角行列.
-// 置換PとL,Uを詰めた行列を返す. Aが正則ではない場合, Uの対角成分に0が含まれる.
-// 計算量: O(n^3)
+// PA = LUなる分解をする. ただし, Pは置換行列, Lは対角成分が1の下三角行列,
+// Uは上三角行列. 置換PとL,Uを詰めた行列を返す. Aが正則ではない場合,
+// Uの対角成分に0が含まれる. 計算量: O(n^3)
 template <typename T>
 pair<vector<int>, Matrix<T>> lu_decomposition(Matrix<T> a) {
     assert(a.size() == a[0].size());
@@ -108,10 +100,10 @@ pair<vector<int>, Matrix<T>> lu_decomposition(Matrix<T> a) {
 
 constexpr inline bool _is_zero(long double x) { return abs(x) < 1e-8; }
 constexpr inline bool _is_zero(double x) { return abs(x) < 1e-8; }
-template <int MOD>
-constexpr inline bool _is_zero(const ModInt<MOD> &x) { return x.x == 0; }
-template <typename T>
-constexpr inline bool _is_zero(T x) { return x == T(0); }
+template <int MOD> constexpr inline bool _is_zero(const ModInt<MOD> &x) {
+    return x.x == 0;
+}
+template <typename T> constexpr inline bool _is_zero(T x) { return x == T(0); }
 
 // solve
 // PA = LUを用いてAx = bなる連立方程式をとく.
@@ -147,8 +139,7 @@ vector<T> solve(vector<int> p, const Matrix<T> &lu, vector<T> b) {
 // Ax = bなる連立方程式をとく.
 // もし解が存在しなければ{}を返す. 解が少なくとも一つ存在すればその一つを返す.
 // 計算量: O(n^3)
-template <typename T>
-vector<T> solve(Matrix<T> A, vector<T> b) {
+template <typename T> vector<T> solve(Matrix<T> A, vector<T> b) {
     assert(A.size() == A[0].size());
     auto [p, lu] = lu_decomposition(A);
     return solve(p, lu, b);
@@ -157,8 +148,7 @@ vector<T> solve(Matrix<T> A, vector<T> b) {
 // _det
 // lu分解された行列の行列式を求める.
 // 計算量: O(n)
-template <typename T>
-T _det(const Matrix<T> &lu) {
+template <typename T> T _det(const Matrix<T> &lu) {
     T ans = T(1);
     for (int i = 0; i < (int)lu.size(); i++)
         ans *= lu[i][i];
@@ -168,8 +158,7 @@ T _det(const Matrix<T> &lu) {
 // det
 // 行列の行列式を求める.
 // 計算量: O(n^3)
-template <typename T>
-T det(Matrix<T> A) {
+template <typename T> T det(Matrix<T> A) {
     auto [_, lu] = lu_decomposition(A);
     return _det(lu);
 }
@@ -177,8 +166,7 @@ T det(Matrix<T> A) {
 // _rank
 // lu分解された行列のランクを求める.
 // 計算量: O(n)
-template <typename T>
-int _rank(const Matrix<T> &lu) {
+template <typename T> int _rank(const Matrix<T> &lu) {
     int ans = (int)lu.size();
     for (int i = 0; i < (int)lu.size(); i++)
         if (_is_zero(lu[i][i])) ans--;
@@ -188,8 +176,7 @@ int _rank(const Matrix<T> &lu) {
 // rank
 // 行列のランクを求める.
 // 計算量: O(n^3)
-template <typename T>
-int rank(Matrix<T> A) {
+template <typename T> int rank(Matrix<T> A) {
     auto [_, lu] = lu_decomposition(A);
     return _rank(lu);
 }

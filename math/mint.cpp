@@ -2,8 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template <int MOD>
-struct ModInt {
+template <int MOD> struct ModInt {
   public:
     long long x;
     ModInt(long long x = 0) : x((x % MOD + MOD) % MOD) {}
@@ -19,15 +18,29 @@ struct ModInt {
         (x *= a.x) %= MOD;
         return *this;
     }
-    constexpr ModInt &operator/=(const ModInt a) noexcept { return *this *= a.inverse(); }
+    constexpr ModInt &operator/=(const ModInt a) noexcept {
+        return *this *= a.inverse();
+    }
 
-    constexpr ModInt operator+(const ModInt a) const noexcept { return ModInt(*this) += a.x; }
-    constexpr ModInt operator-(const ModInt a) const noexcept { return ModInt(*this) -= a.x; }
-    constexpr ModInt operator*(const ModInt a) const noexcept { return ModInt(*this) *= a.x; }
-    constexpr ModInt operator/(const ModInt a) const noexcept { return ModInt(*this) /= a.x; }
+    constexpr ModInt operator+(const ModInt a) const noexcept {
+        return ModInt(*this) += a.x;
+    }
+    constexpr ModInt operator-(const ModInt a) const noexcept {
+        return ModInt(*this) -= a.x;
+    }
+    constexpr ModInt operator*(const ModInt a) const noexcept {
+        return ModInt(*this) *= a.x;
+    }
+    constexpr ModInt operator/(const ModInt a) const noexcept {
+        return ModInt(*this) /= a.x;
+    }
 
-    friend constexpr std::ostream &operator<<(std::ostream &os, const ModInt<MOD> a) noexcept { return os << a.x; }
-    friend constexpr std::istream &operator>>(std::istream &is, ModInt<MOD> &a) noexcept {
+    friend constexpr std::ostream &operator<<(std::ostream &os,
+                                              const ModInt<MOD> a) noexcept {
+        return os << a.x;
+    }
+    friend constexpr std::istream &operator>>(std::istream &is,
+                                              ModInt<MOD> &a) noexcept {
         is >> a.x;
         a.x = (a.x % MOD + MOD) % MOD;
         return is;
@@ -57,6 +70,8 @@ struct ModInt {
 };
 
 template <typename U, int MOD>
-inline ModInt<MOD> operator*(const U &c, const ModInt<MOD> &a) { return {c * a.x}; }
+inline ModInt<MOD> operator*(const U &c, const ModInt<MOD> &a) {
+    return {c * a.x};
+}
 
 using mint = ModInt<998244353>;
