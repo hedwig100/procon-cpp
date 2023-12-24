@@ -9,8 +9,7 @@ using namespace std;
  * n個の区別できるものをk個の区別できない箱に0個以上に分割する方法が何通りあるか求める.
  * これをB(n,k)としてベル数という.
  */
-template <typename T>
-struct BellNumber {
+template <typename T> struct BellNumber {
     int n, k;
     vector<vector<T>> dp;
 
@@ -41,7 +40,5 @@ struct BellNumber {
      * B(i,j) を返す.
      * 制約: 0 <= i <= n,0 <= j <= k
      */
-    T operator()(int i, int j) {
-        return dp[i][j];
-    }
+    T operator()(int i, int j) { return dp[i][j]; }
 };

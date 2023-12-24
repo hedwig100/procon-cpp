@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D&lang=ja"
+#define PROBLEM                                                                \
+    "https://judge.u-aizu.ac.jp/onlinejudge/"                                  \
+    "description.jsp?id=DPL_5_D&lang=ja"
 #include "../math/mod_comb.cpp"
 
 int main() {

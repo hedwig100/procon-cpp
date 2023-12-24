@@ -3,8 +3,7 @@
 using namespace std;
 
 // BinaryIndexedTree2D
-template <typename T>
-struct BinaryIndexedTree2D {
+template <typename T> struct BinaryIndexedTree2D {
     int h, w;
     vector<vector<T>> data;
 
@@ -49,6 +48,7 @@ struct BinaryIndexedTree2D {
     // 制約: 0 <= h1 <= h2 <= h,0 <= w1 <= w2 <= w
     // 計算量: O(loghlogw)
     T sum(int h1, int h2, int w1, int w2) {
-        return _sum(h2 - 1, w2 - 1) - _sum(h2 - 1, w1 - 1) - _sum(h1 - 1, w2 - 1) + _sum(h1 - 1, w1 - 1);
+        return _sum(h2 - 1, w2 - 1) - _sum(h2 - 1, w1 - 1) -
+               _sum(h1 - 1, w2 - 1) + _sum(h1 - 1, w1 - 1);
     }
 };

@@ -6,5 +6,5 @@ AlignTrailingComments: true
 AllowShortIfStatementsOnASingleLine: true
 AllowShortBlocksOnASingleLine: true
 PointerAlignment: Right
-ColumnLimit: 0
+ColumnLimit: 80
 IndentWidth: 4

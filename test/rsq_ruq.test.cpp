@@ -14,11 +14,16 @@ int main() {
     using OpMon    = int;
     const OpMon id = 1000000;
 
-    auto op          = [](const Mon &x, const Mon &y) { return Mon{x.val + y.val, x.length + y.length}; };
+    auto op = [](const Mon &x, const Mon &y) {
+        return Mon{x.val + y.val, x.length + y.length};
+    };
     auto composition = [&](const OpMon &a, const OpMon &b) {
         if (b == id) return a;
-        return b; };
-    auto mapping     = [&](const Mon &x, const OpMon &a) { return Mon{(a == id ? x.val : a * x.length), x.length}; };
+        return b;
+    };
+    auto mapping = [&](const Mon &x, const OpMon &a) {
+        return Mon{(a == id ? x.val : a * x.length), x.length};
+    };
     LazySegmentTree<Mon, OpMon> lst(n, op, {0, 0}, composition, id, mapping);
     vector<Mon> A(n, {0, 1});
     lst.build(A);

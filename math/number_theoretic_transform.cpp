@@ -13,8 +13,8 @@ struct NumberTheoreticTransform {
   public:
     NumberTheoreticTransform() {}
 
-    // ntt calculates y[i] = \sum_{j=0}^{n-1} x[j]r^{ij} where n is length of x and r is n-th root of 1 (mod n)
-    // n must be power of two (n = 2^m)
+    // ntt calculates y[i] = \sum_{j=0}^{n-1} x[j]r^{ij} where n is length of x
+    // and r is n-th root of 1 (mod n) n must be power of two (n = 2^m)
     void ntt(int m, mint nth_root, std::vector<mint> &x) {
         if (m == 0) return;
         int n = (int)x.size();
@@ -37,7 +37,8 @@ struct NumberTheoreticTransform {
         }
     }
 
-    // multiply calculates f*g, when f[i] is coefficients of x^i (0-indexed) and g[i] is coefficients of x^i (0-indexed)
+    // multiply calculates f*g, when f[i] is coefficients of x^i (0-indexed) and
+    // g[i] is coefficients of x^i (0-indexed)
     std::vector<mint> multiply(std::vector<mint> f, std::vector<mint> g) {
         int min_sz = (int)f.size() + (int)g.size() + 1;
         int m      = 0;

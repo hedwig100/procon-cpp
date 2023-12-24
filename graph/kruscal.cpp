@@ -6,8 +6,7 @@ using namespace std;
 
 // Kruscal
 // Kruscal法で最小全域森を求める.
-template <typename T, const T INF>
-struct Kruscal {
+template <typename T, const T INF> struct Kruscal {
     struct edge {
         int a, b;
         T cost;
@@ -24,9 +23,7 @@ struct Kruscal {
 
     // add_edge
     // aからbへコストcの辺を張る
-    void add_edge(int a, int b, T c) {
-        edges.emplace_back(a, b, c, m++);
-    }
+    void add_edge(int a, int b, T c) { edges.emplace_back(a, b, c, m++); }
 
     // solve
     // 最小全域森を求めて, そのコストを返す.

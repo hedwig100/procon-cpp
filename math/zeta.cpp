@@ -4,8 +4,7 @@ using namespace std;
 
 // a <= b <=> a <= b
 // g[x] = \\sum_{ i <= x } f[i]
-template <class R>
-struct ZetaOrder {
+template <class R> struct ZetaOrder {
     // TODO:verify
   public:
     ZetaOrder() {}
@@ -42,8 +41,7 @@ struct ZetaOrder {
 // min_pow2 returns minimum power of 2 larger than x (x <= 2^i)
 // and i (pair{i,2^i}).
 // x must be more than 0
-template <class T>
-std::pair<int, T> min_pow2(T x) {
+template <class T> std::pair<int, T> min_pow2(T x) {
     int i = 0;
     T ret = 1;
     while (x > ret) {
@@ -55,8 +53,7 @@ std::pair<int, T> min_pow2(T x) {
 
 // S <= T <=> S \subset T
 // g[T] = \sum_{ S \subset T } f[S]
-template <class R>
-struct ZetaSubset {
+template <class R> struct ZetaSubset {
     // TODO:verify
   private:
     // min_pow2 returns minimum power of 2 larger than x (x <= 2^i)
@@ -80,8 +77,7 @@ struct ZetaSubset {
         f.resize(sz, (R)0);
         for (int i = 0; i < d; i++) {
             for (int T = 0; T < sz; T++) {
-                if (T & (1 << i))
-                    f[T] += f[T ^ (1 << i)];
+                if (T & (1 << i)) f[T] += f[T ^ (1 << i)];
             }
         }
     }
@@ -91,8 +87,7 @@ struct ZetaSubset {
         f.resize(sz, (R)0);
         for (int i = 0; i < d; i++) {
             for (int T = 0; T < sz; T++) {
-                if (T & (1 << i))
-                    f[T] -= f[T ^ (1 << i)];
+                if (T & (1 << i)) f[T] -= f[T ^ (1 << i)];
             }
         }
     }
@@ -114,8 +109,7 @@ struct ZetaSubset {
 
 // a <= b <=> b | a
 // g[x] = \sum_{ x | i } f[i]
-template <class R>
-struct ZetaDiv {
+template <class R> struct ZetaDiv {
     // TODO: O(nloglogn) zeta transform
   private:
     // min_pow2 returns minimum power of 2 larger than x (x <= 2^i)

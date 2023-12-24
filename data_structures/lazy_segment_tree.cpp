@@ -14,15 +14,15 @@ using namespace std;
 // このとき, 以下の操作が可能
 // 1. A[l]*...*A[r-1]を求める
 // 2. A[i] = A[i]^a (l <= i < r)と更新する
-template <typename Mon, typename OpMon>
-struct LazySegmentTree {
+template <typename Mon, typename OpMon> struct LazySegmentTree {
     using Fx  = function<Mon(Mon, Mon)>;
     using Fop = function<Mon(Mon, OpMon)>;
     using Fy  = function<OpMon(OpMon, OpMon)>;
 
     int n, size, log;
     vector<Mon> data;
-    vector<OpMon> lazy; // lazy[i] = i自身とiの子孫にこれから伝播しなければならない値
+    vector<OpMon>
+        lazy; // lazy[i] = i自身とiの子孫にこれから伝播しなければならない値
 
     Fx op;
     Mon e;
@@ -31,7 +31,8 @@ struct LazySegmentTree {
     Fop mapping;
 
     LazySegmentTree(int n, Fx op, Mon e, Fy composition, OpMon id, Fop mapping)
-        : n(n), op(op), e(e), composition(composition), id(id), mapping(mapping) {
+        : n(n), op(op), e(e), composition(composition), id(id),
+          mapping(mapping) {
         size = 1, log = 0;
         while (size < n)
             size <<= 1, log++;

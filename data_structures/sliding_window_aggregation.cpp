@@ -7,9 +7,9 @@ using namespace std;
 //
 // push(x): xを追加する
 // pop(): queueの要領で要素を取り除く(FIFO)
-// fold(): 今入っている要素を早く入っていた方からa0,a1,...,anとしたときにa0*a1*...anを計算する.
-template <typename SemiGrp>
-struct SlidingWindowAggregation {
+// fold():
+// 今入っている要素を早く入っていた方からa0,a1,...,anとしたときにa0*a1*...anを計算する.
+template <typename SemiGrp> struct SlidingWindowAggregation {
     using Fx = function<SemiGrp(const SemiGrp &, const SemiGrp &)>;
 
     vector<SemiGrp> left, left_cum, right, right_cum;
@@ -48,7 +48,8 @@ struct SlidingWindowAggregation {
         left.push_back(right.back()), left_cum.push_back(right.back());
         right.pop_back(), right_cum.pop_back();
         for (int i = 1; i < sz - 1; i++) {
-            left.push_back(right.back()), left_cum.push_back(op(right.back(), left_cum.back()));
+            left.push_back(right.back()),
+                left_cum.push_back(op(right.back(), left_cum.back()));
             right.pop_back(), right_cum.pop_back();
         }
         right.pop_back(), right_cum.pop_back();
@@ -68,7 +69,8 @@ struct SlidingWindowAggregation {
             return op(left_cum.back(), right_cum.back());
     }
 
-    friend ostream &operator<<(ostream &os, const SlidingWindowAggregation<SemiGrp> &swag) {
+    friend ostream &operator<<(ostream &os,
+                               const SlidingWindowAggregation<SemiGrp> &swag) {
         for (int i = (int)swag.left.size() - 1; i >= 0; i--)
             os << swag.left[i] << ' ';
         for (int i = 0; i < (int)swag.right.size(); i++)
@@ -79,7 +81,8 @@ struct SlidingWindowAggregation {
 
 // example:
 // using SemiGrp = pair<int, int>;
-// SlidingWindowAggregation<SemiGrp> swag([](const SemiGrp &a, const SemiGrp &b) {
+// SlidingWindowAggregation<SemiGrp> swag([](const SemiGrp &a, const SemiGrp &b)
+// {
 //     if (a.first < b.first)
 //         return b;
 //     else

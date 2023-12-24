@@ -4,8 +4,7 @@ using namespace std;
 
 // Gridの(i,j)なるインデックスを1次元のインデックスに直す
 
-template <typename T>
-struct IndexGenerator {
+template <typename T> struct IndexGenerator {
     T H, W;
     IndexGenerator(T H, T W) : H(H), W(W) {}
     T N() { return H * W; }

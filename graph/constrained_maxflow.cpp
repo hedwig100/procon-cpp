@@ -6,13 +6,13 @@ using namespace std;
 
 // ConstrainedMaxFlow
 // 最小流量制約付き最大流問題をとく.
-template <typename T, const T INF>
-struct ConstrainedMaxFlow {
+template <typename T, const T INF> struct ConstrainedMaxFlow {
     int n, super_s, super_t;
     T max_flow_from_super_s;
     Dinic<T, INF> flow_solver;
 
-    ConstrainedMaxFlow(int n) : n(n), super_s(n), super_t(n + 1), max_flow_from_super_s(0) {
+    ConstrainedMaxFlow(int n)
+        : n(n), super_s(n), super_t(n + 1), max_flow_from_super_s(0) {
         flow_solver.resize(n + 2);
     }
 

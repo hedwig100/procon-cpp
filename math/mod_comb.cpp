@@ -7,8 +7,7 @@ using namespace std;
 // Combination
 // mod MODで階乗を計算しておくことでcomb(n,k)などをO(1)
 // で計算する. MODはconstな素数
-template <const int MOD>
-struct Combination {
+template <const int MOD> struct Combination {
     using mint = ModInt<MOD>;
     int n;
     vector<mint> fact, ifact, invs;
@@ -57,8 +56,7 @@ struct Combination {
 // nck_nbig
 // nが大きい時にnCkを計算する
 // 計算量: O(k)
-template <const int MOD>
-ModInt<MOD> nck_nbig(long long n, int k) {
+template <const int MOD> ModInt<MOD> nck_nbig(long long n, int k) {
     using mint = ModInt<MOD>;
     mint ans   = 1;
     for (int i = 0; i < k; ++i)
@@ -74,9 +72,7 @@ ModInt<MOD> nck_nbig(long long n, int k) {
 long long modpow(long long x, long long y, long long m) {
     long long ans = 1, tmp = x;
     while (y > 0) {
-        if (y & 1) {
-            ans = (ans * tmp) % m;
-        }
+        if (y & 1) { ans = (ans * tmp) % m; }
         y >>= 1;
         tmp = (tmp * tmp) % m;
     }

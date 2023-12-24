@@ -7,8 +7,7 @@ using namespace std;
 // 線形漸化式: A_n = D_0A_{n-k} + ... D_{k-1}A_{n-1}
 // が与えられたときに
 // A_nをO(k^2logn)で求める.
-template <typename T>
-struct Kitamasa {
+template <typename T> struct Kitamasa {
     int k;
     vector<T> init, coef;
 
@@ -27,9 +26,7 @@ struct Kitamasa {
         int msb = get_msb(n);
         for (int i = msb - 1; i >= 0; i--) {
             ret = mul2(ret);
-            if ((n >> i) & 1) {
-                ret = add1(ret);
-            }
+            if ((n >> i) & 1) { ret = add1(ret); }
         }
         T ans = T(0);
         for (int i = 0; i < k; i++)

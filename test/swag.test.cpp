@@ -12,12 +12,13 @@ int main() {
         cin >> X[i];
 
     using SemiGrp = pair<int, int>;
-    SlidingWindowAggregation<SemiGrp> swag([](const SemiGrp &a, const SemiGrp &b) {
-        if (a.first < b.first)
-            return b;
-        else
-            return a;
-    });
+    SlidingWindowAggregation<SemiGrp> swag(
+        [](const SemiGrp &a, const SemiGrp &b) {
+            if (a.first < b.first)
+                return b;
+            else
+                return a;
+        });
 
     int max_diff = 0;
     int ai = -1, bi = -1;

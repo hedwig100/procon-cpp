@@ -58,7 +58,5 @@ struct LowestCommonAncestor {
         return parents[u][0];
     }
 
-    int operator[](int k) {
-        return dist[k];
-    }
+    int operator[](int k) { return dist[k]; }
 };

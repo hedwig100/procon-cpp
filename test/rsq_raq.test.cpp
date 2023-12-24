@@ -12,14 +12,15 @@ int main() {
         long long val, length;
     };
     using OpMon = long long;
-    LazySegmentTree<Mon, OpMon>
-        lst(
-            n,
-            [](const Mon &x, const Mon &y) { return Mon{x.val + y.val, x.length + y.length}; },
-            {0, 0},
-            [](const OpMon &a, const OpMon &b) { return a + b; },
-            0,
-            [](const Mon &x, const OpMon &a) { return Mon{x.val + x.length * a, x.length}; });
+    LazySegmentTree<Mon, OpMon> lst(
+        n,
+        [](const Mon &x, const Mon &y) {
+            return Mon{x.val + y.val, x.length + y.length};
+        },
+        {0, 0}, [](const OpMon &a, const OpMon &b) { return a + b; }, 0,
+        [](const Mon &x, const OpMon &a) {
+            return Mon{x.val + x.length * a, x.length};
+        });
 
     vector<Mon> A(n, Mon{0, 1});
     lst.build(A);

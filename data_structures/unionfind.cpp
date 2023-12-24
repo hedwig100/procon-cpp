@@ -8,9 +8,7 @@ struct UnionFind {
     int n;
     vector<int> parents;
 
-    UnionFind(int n) : n(n) {
-        parents.assign(n, -1);
-    }
+    UnionFind(int n) : n(n) { parents.assign(n, -1); }
 
     // find
     // xの親を返す.
@@ -36,16 +34,12 @@ struct UnionFind {
     // same
     // xとyが同じグループにいるか判定
     // 制約: 0 <= x,y < n
-    bool same(int x, int y) {
-        return find(x) == find(y);
-    }
+    bool same(int x, int y) { return find(x) == find(y); }
 
     // size
     // xと同じグループのメンバーの個数
     // 制約: 0 <= x < n
-    int size(int x) {
-        return -parents[find(x)];
-    }
+    int size(int x) { return -parents[find(x)]; }
 
     // root
     // 根を全て列挙する

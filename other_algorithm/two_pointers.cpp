@@ -6,10 +6,10 @@ using namespace std;
 // 条件Pを満たす連続部分列[l,r)の数え上げ, もしくは最大の長さを計算する.
 // ただし条件Pは以下の条件を満たすようなものでなければならない.
 // 条件
-// - 連続部分列[l,r)が条件Pを満たすとき, [l,r)内の任意の連続部分列が条件Pを満たす.
+// - 連続部分列[l,r)が条件Pを満たすとき,
+// [l,r)内の任意の連続部分列が条件Pを満たす.
 //
-template <typename Data, const Data initial_state>
-struct TwoPointers {
+template <typename Data, const Data initial_state> struct TwoPointers {
     using Fcond = function<bool(Data data, int r)>;
     using Fincl = function<void(Data &data, int &l)>;
     using Fincr = function<void(Data &data, int &r)>;
@@ -22,8 +22,9 @@ struct TwoPointers {
     Data data = initial_state;
 
     // cond
-    // dataは連続部分列[l,r-1)に関する情報を持っており, [l,r)が条件Pを満たす場合はtrue,そうでない時はfalseを返す.
-    // 制約: 0 <= l < r <= n
+    // dataは連続部分列[l,r-1)に関する情報を持っており,
+    // [l,r)が条件Pを満たす場合はtrue,そうでない時はfalseを返す. 制約: 0 <= l <
+    // r <= n
     Fcond cond;
 
     // increase_l
@@ -58,8 +59,7 @@ struct TwoPointers {
             }
             count += r - l;
             max_length = max(max_length, r - l);
-            if (r == l)
-                increase_r(data, r);
+            if (r == l) increase_r(data, r);
         }
     }
 };
@@ -69,10 +69,10 @@ struct TwoPointers {
 // 条件Qを満たす連続部分列[l,r)の数え上げ, もしくは最小の長さを計算する.
 // ただし条件Qは以下の条件を満たすようなものでなければならない.
 // 条件
-// - 連続部分列[l,r)が条件Qを満たすとき, [l,r)を含む任意の連続部分列が条件Qを満たす.
+// - 連続部分列[l,r)が条件Qを満たすとき,
+// [l,r)を含む任意の連続部分列が条件Qを満たす.
 //
-template <typename Data, const Data initial_state>
-struct TwoPointers2 {
+template <typename Data, const Data initial_state> struct TwoPointers2 {
     using Fcond = function<bool(Data data)>;
     using Fincl = function<void(Data &data, int &l)>;
     using Fincr = function<void(Data &data, int &r)>;
@@ -85,8 +85,9 @@ struct TwoPointers2 {
     Data data = initial_state;
 
     // cond
-    // dataは連続部分列[l,r)に関する情報を持っており, [l,r)が条件Qを満たす場合はtrue,そうでない時はfalseを返す.
-    // 制約: 0 <= l < r <= n
+    // dataは連続部分列[l,r)に関する情報を持っており,
+    // [l,r)が条件Qを満たす場合はtrue,そうでない時はfalseを返す. 制約: 0 <= l <
+    // r <= n
     Fcond cond;
 
     // increase_l
@@ -126,8 +127,7 @@ struct TwoPointers2 {
             if (r == n + 1) break;
             count += n - r + 1;
             min_length = min(min_length, r - l);
-            if (r == l)
-                increase_r(data, r);
+            if (r == l) increase_r(data, r);
         }
     }
 };

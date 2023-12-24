@@ -39,7 +39,8 @@ struct StronglyConnectedComponents {
     std::vector<int> group, order;
     std::vector<std::vector<int>> scc_group, sccG;
 
-    // StronglyConnectedComponents receives N as the number of vertex of graph G.
+    // StronglyConnectedComponents receives N as the number of vertex of graph
+    // G.
     StronglyConnectedComponents(int N) : N(N) {
         G.resize(N);
         rG.resize(N);
@@ -69,8 +70,7 @@ struct StronglyConnectedComponents {
             }
         }
 
-        if (!build_scc)
-            return;
+        if (!build_scc) return;
 
         sccG.resize(N_scc);
         for (int i = 0; i < N_scc; i++) {
@@ -107,7 +107,5 @@ struct StronglyConnectedComponents {
 
     // scc[i] returns a group which vertex i belongs to.
     // this function is valid after build () is called.
-    int operator[](int i) {
-        return group[i];
-    }
+    int operator[](int i) { return group[i]; }
 };

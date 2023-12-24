@@ -5,8 +5,7 @@ using namespace std;
 // StirlingNumber2
 // n個の区別できるものをk個の区別できない箱に1個以上に分割する方法が何通りあるか求める.
 // これをS(n,k)とする. 第二種スターリング数
-template <typename T>
-struct StirlingNumber2 {
+template <typename T> struct StirlingNumber2 {
     int n, k;
     vector<vector<T>> dp;
 
@@ -30,7 +29,5 @@ struct StirlingNumber2 {
 
     // S(i,j)を返す.
     // 制約: 0 <= i <= n, 0 <= j <= k
-    T operator()(int i, int j) {
-        return dp[i][j];
-    }
+    T operator()(int i, int j) { return dp[i][j]; }
 };

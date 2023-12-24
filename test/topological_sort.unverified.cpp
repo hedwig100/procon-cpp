@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B&lang=ja"
+#define PROBLEM                                                                \
+    "https://judge.u-aizu.ac.jp/onlinejudge/"                                  \
+    "description.jsp?id=GRL_4_B&lang=ja"
 #include "../graph/topological_sort.cpp"
 
 int main() {

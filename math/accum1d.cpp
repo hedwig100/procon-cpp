@@ -6,8 +6,7 @@ using namespace std;
 // 1次元累積和を計算する構造体
 // n: 配列の長さ
 // m: インデックスの mod m ごとの累積和を計算する. m = 1で通常の累積和
-template <typename T>
-struct Accum1D {
+template <typename T> struct Accum1D {
     int n, m;
     vector<T> A, cum;
 

@@ -7,20 +7,18 @@ namespace _cht {
 
 // Line
 // 直線を管理する構造体
-template <typename T>
-struct Line {
+template <typename T> struct Line {
     T a, b;
     Line(T a = 0, T b = 0) : a(a), b(b) {}
-    T f(T x) {
-        return a * x + b;
-    }
+    T f(T x) { return a * x + b; }
     bool operator<(const Line<T> &rhs) const {
         if (a == rhs.a) return (b < rhs.b);
         return (a < rhs.a);
     }
 
     // necessary
-    // l1 <= *this <= l2であり, l1,l2が直線集合にあるときに自分が必要かどうか判定する関数.
+    // l1 <= *this <= l2であり,
+    // l1,l2が直線集合にあるときに自分が必要かどうか判定する関数.
     bool neccesary(const Line<T> &l1, const Line<T> &l2) const {
         if (l1.a == a) return false;
         if (l2.a == a) return true;
@@ -30,15 +28,12 @@ struct Line {
 
 // ConvexHullTrickMonotone
 // 追加する直線の傾きに単調性がある場合のConvexHullTrick
-template <typename T, bool MIN = true>
-struct ConvexHullTrickMonotone {
+template <typename T, bool MIN = true> struct ConvexHullTrickMonotone {
     int n;
     T sgn = MIN ? T(1) : T(-1);
     deque<Line<T>> lines;
 
-    ConvexHullTrickMonotone() : n(0) {
-        lines.resize(0);
-    }
+    ConvexHullTrickMonotone() : n(0) { lines.resize(0); }
 
     // add_right
     // y = ax + bなる直線を追加する.
@@ -76,7 +71,9 @@ struct ConvexHullTrickMonotone {
         return make_pair(sgn * lines[l].f(x), ab);
     }
 
-    friend ostream &operator<<(ostream &os, const ConvexHullTrickMonotone<T, MIN> &cht) noexcept {
+    friend ostream &
+    operator<<(ostream &os,
+               const ConvexHullTrickMonotone<T, MIN> &cht) noexcept {
         for (int i = 0; i < cht.n; i++) {
             os << "l(" << cht.lines[i].a << ',' << cht.lines[i].b << "),";
         }
@@ -99,8 +96,7 @@ struct ConvexHullTrickMonotone {
         }
 
         // lは不必要
-        if (l.a == lines.back().a && l.b >= lines.back().b)
-            return;
+        if (l.a == lines.back().a && l.b >= lines.back().b) return;
 
         while (n > 1 && !lines.back().neccesary(lines[n - 2], l)) {
             lines.pop_back();
@@ -127,8 +123,7 @@ struct ConvexHullTrickMonotone {
         }
 
         // lは不必要
-        if (l.a == lines.front().a && l.b >= lines.front().b)
-            return;
+        if (l.a == lines.front().a && l.b >= lines.front().b) return;
 
         while (n > 1 && !lines.front().neccesary(l, lines[1])) {
             lines.pop_front();

@@ -11,8 +11,7 @@ using namespace std;
 // 以下の二つの操作ができる.
 // 1. A[x]を更新する
 // 2. A[l]*...*A[r-1] を計算する
-template <typename Mon>
-struct SegmentTree {
+template <typename Mon> struct SegmentTree {
     using Fx = function<Mon(Mon, Mon)>;
 
     int n;
@@ -67,9 +66,7 @@ struct SegmentTree {
     // A[k]を返す.
     // 制約: 0 <= k < n
     // 計算量: O(1)
-    Mon get(int k) {
-        return tree[k + size];
-    }
+    Mon get(int k) { return tree[k + size]; }
 
     // prod
     // A[l]*...*A[r-1] を計算する. l = rのときはeを返す.
@@ -95,8 +92,8 @@ struct SegmentTree {
     }
 
     // max_right
-    // l < r <= nでf(A[l]*...*A[r-1]) = trueなる最大のr, そのようなrが存在しない場合はlを返す.
-    // 制約: 0 <= l <= n,f(e) = true
+    // l < r <= nでf(A[l]*...*A[r-1]) = trueなる最大のr,
+    // そのようなrが存在しない場合はlを返す. 制約: 0 <= l <= n,f(e) = true
     // 計算量: O(logn)
     int max_right(int l, function<bool(Mon)> f) {
         if (l == n) return n;

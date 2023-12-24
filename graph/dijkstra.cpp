@@ -4,8 +4,7 @@ using namespace std;
 
 // Dijkstra
 // dijkstra法で最短経路を求める.
-template <typename T, const T INF>
-struct Dijkstra {
+template <typename T, const T INF> struct Dijkstra {
     using edge = pair<T, int>;
     int n;
 
@@ -21,9 +20,7 @@ struct Dijkstra {
     // add_edge
     // aからbへコストcの辺を張る
     // 制約: c >= 0
-    void add_edge(int a, int b, T c) {
-        G[a].emplace_back(c, b);
-    }
+    void add_edge(int a, int b, T c) { G[a].emplace_back(c, b); }
 
     // solve
     // sからの最短経路を求める.

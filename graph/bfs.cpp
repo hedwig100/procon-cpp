@@ -4,8 +4,7 @@ using namespace std;
 
 // Bfs
 // nは頂点数, Gはグラフを隣接リスト形式で持ったもの
-template <typename T>
-struct Bfs {
+template <typename T> struct Bfs {
     int n;
     vector<vector<int>> G;
     vector<int> dist, prev_v;
